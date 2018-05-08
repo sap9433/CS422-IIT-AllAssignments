@@ -1,0 +1,150 @@
+---
+title: "CS422: Decision Trees using rpart"
+output: html_notebook
+author: "Vijay K. Gurbani, Ph.D., Illinois Institute of Technology"
+---
+
+##### Make sure you install the following packages:
+##### > install.packages(c("rpart", "rpart.plot", "caret", "e1071", "knitr", "ROCR"))
+
+# Decision Tree construction and introspection
+
+```{r}
+library(rpart)
+library(caret)
+library(rpart.plot)
+library(ROCR)
+
+rm(list=ls())
+
+setwd("~/Desktop/Assignments&Coursework/422/Hw-2-March4/")
+
+options("digits"=3)
+
+# Load the Diabetes dataset
+diabetes <- read.csv("diabetes-mod.csv", header=T, sep=",", comment.char = '#')
+head(diabetes)
+```
+
+#### Split the data in a 80-20 (train-test) ratio.
+```{r}
+set.seed(100)
+index <- sample(1:nrow(diabetes), size=0.2*nrow(diabetes))
+test <- diabetes[index, ]
+train <- diabetes[-index, ]
+```
+
+#### Build the decision tree model using all predictor variables.  If you only wanted to use, say, preg and plas predictor variables, you would instead specify the formula as **label ~ preg+plas**.
+#### Note that we build the model on the training data *(data = train)*
+```{r}
+model <- rpart(label ~ ., method="class", data=train)
+```
+
+#### Visualize the decision tree
+<a id="plot_initial_tree"></a>
+```{r plot_initial_tree}
+rpart.plot(model, extra=104, fallen.leaves = T, type=4, main="Rpart on Diabetes data (Full Tree)")
+```
+
+#### Inspect the model you created for more information.
+```{r}
+summary(model)
+```
+# Decision tree prediction
+
+#### Now, let's run predictions using the fitted model.  Recall that we have a test dataset that contains 20% of our data.  We use the fitted model on this test dataset to see how well the model works.
+```{r}
+pred <- predict(model, test, type="class")
+```
+#### pred now contains the predictions; if we take a look at a few of them, this is what we will see:
+```{r}
+head(pred)
+```
+#### Above, the first line is the index of the observation relative to the diabetes dataset (i.e., the first observation in the test dataset corresponds to the 166th observation in the diabetes dataset).  Our model is predicting that the first observation of the test dataset will be predicted as 0, the second observation as 1, and so on.
+#### Let's see the true labels in the test dataset:
+```{r}
+head(test$label)
+```
+#### Hmmm ... looks like the model matched 3 predictions out of the 6 shown.
+
+#### Let's create a confusion matrix.  We will do so in two ways.  First, we will create the confusion matrix manually, and then we will use the package caret's confusionMatrix() method.
+```{r}
+# How did we do?  Let's create a confusion matrix manually first.  Let's figure
+# out how many observations in our test set were positive and negative.  These
+# are the true labels.
+total_pos <- sum(test[,9] == 1)
+total_neg <- sum(test[,9] == 0)
+
+# Now, let's see how many of the predicted observations that were positive
+# actually matched the true labels.
+tp <- sum(test[,9] == 1 & pred == 1)
+tn <- sum(test[,9] == 0 & pred == 0)
+
+table(pred, test[,9]) # Manual confusion matrix
+```
+#### And here is the confusion matrix from caret package.  Note that this confusion matrix gives us a lot of other information (sensitivity, accuracy, specificity, ...)
+<a id="confusion_matrix_full_tree"></a>
+```{r}
+confusionMatrix(pred, test)
+```
+
+#### Here is the ROC curve for the test data.  We will also print the AUC at the end.
+<a id="pred_chunk"></a>
+```{r pred_chunk}
+# ROC curve
+pred.rocr <- predict(model, newdata=test, type="prob")[,2]
+f.pred <- prediction(pred.rocr, test$label)
+f.perf <- performance(f.pred, "tpr", "fpr")
+plot(f.perf, colorize=T, lwd=3)
+abline(0,1)
+auc <- performance(f.pred, measure = "auc")
+cat(paste("The area under curve (AUC) for this model is ", round(auc@y.values[[1]], 3)))
+```
+#### In the [code chunk](#pred_chunk) above, note that when we call predict(), we specify the parameter *type="prob"*.  This, then, returns us the probability of how confident the model is of its prediction.  Let's print the first few probabilities.  To make the output attractive, I have created a data frame that has 3 columns: True label, Predicted label, and probability.
+```{r}
+tmp.df <- data.frame(True_Label=head(test$label),
+                     Predicted_Label=head(pred),
+                     Probability=head(pred.rocr))
+tmp.df
+
+```
+```{r echo=FALSE}
+rm(tmp.df)
+```
+# Decision Tree pruning
+
+#### To prune the tree, first display the complexity table.
+```{r}
+options("digits"=5)
+printcp(model)
+```
+```{r echo=FALSE}
+options("digits"=3)
+```
+#### In the output above, note the *xerror* column. Note how it decreases until the 5th row, and then increases.  We want to get the complexity value (*CP* column) associated with the smallest *xerror*.  The following code does this:
+```{r}
+cpx=model$cptable[which.min(model$cptable[,"xerror"]), "CP"]
+cpx
+```
+#### That is the value of complexity we require when we prune the tree.  So, let's prune the tree and plot it to see if it is less complex ...
+```{r}
+ptree <- prune(model, cp=cpx)
+rpart.plot(ptree, extra=104, fallen.leaves = T, type=4, main="Pruned Diabetes Decision Tree")
+```
+#### Hmmm, the tree is a bit less complex than the [initial tree](#plot_initial_tree) we had.  So far, so good.
+#### How does the pruned tree perform on predictions?  Let's see...
+```{r}
+ptree.pred <- predict(ptree, test, type="class")
+confusionMatrix(ptree.pred, test[, 9])
+```
+#### Looks like we have done better than before.  In our [earlier confusion matrix](#confusion_matrix_full_tree), we had an accuracy of 0.748, sensitivity of 0.709 and specificity of 0.788.  In our pruned tree, we have an increased accuracy (0.776), increased sensitivity (0.782), though a decreased specificity (0.769), i.e., we have increased our TPs at the expense of our TN.
+
+#### And finally, let's see if we improved our AUC with the pruned tree:
+```{r}
+pruned.pred.rocr <- predict(ptree, newdata=test, type="prob")[,2]
+f.pruned.pred <- prediction(pruned.pred.rocr, test$label)
+auc.pruned <- performance(f.pruned.pred, measure = "auc")
+cat(paste("The area under curve (AUC) for the prunded tree is ", round(auc.pruned@y.values[[1]], 3)))
+
+```
+#### We see a slight improvement for AUC in the prunded tree.  Before, the AUC was 0.835, it is now 0.837.

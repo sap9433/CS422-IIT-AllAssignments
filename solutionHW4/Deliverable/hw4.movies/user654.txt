@@ -1,0 +1,626 @@
+'burbs
+2001: A Space Odyssey (1968)
+21 Grams (2003)
+28 Days Later (2002)
+40-Year-Old Virgin
+A.I. Artificial Intelligence (2001)
+About Schmidt (2002)
+About a Boy (2002)
+Abyss
+Ace Ventura: Pet Detective (1994)
+Ace Ventura: When Nature Calls (1995)
+Addams Family
+Addams Family Values (1993)
+Adventures in Babysitting (1987)
+Africa: The Serengeti (1994)
+Air Force One (1997)
+Airplane II: The Sequel (1982)
+Airplane! (1980)
+Aladdin (1992)
+Alien (1979)
+Aliens (1986)
+Alien³ (a.k.a. Alien 3) (1992)
+Almost Famous (2000)
+Amadeus (1984)
+American Beauty (1999)
+American Pie (1999)
+American Pie 2 (2001)
+American President
+American Psycho (2000)
+American Tail
+Amistad (1997)
+Analyze This (1999)
+Anastasia (1997)
+Anger Management (2003)
+Animal House (1978)
+Another Stakeout (1993)
+Antz (1998)
+Apollo 13 (1995)
+Arachnophobia (1990)
+Army of Darkness (1993)
+Arrival
+As Good as It Gets (1997)
+Austin Powers in Goldmember (2002)
+Austin Powers: International Man of Mystery (1997)
+Austin Powers: The Spy Who Shagged Me (1999)
+Aviator
+Babe (1995)
+Babe: Pig in the City (1998)
+Back to the Future (1985)
+Back to the Future Part II (1989)
+Back to the Future Part III (1990)
+Backdraft (1991)
+Bad Santa (2003)
+Basic Instinct (1992)
+Batman & Robin (1997)
+Batman (1989)
+Batman Begins (2005)
+Batman Forever (1995)
+Batman Returns (1992)
+Beautiful Girls (1996)
+Beautiful Mind
+Beauty and the Beast (1991)
+Beavis and Butt-Head Do America (1996)
+Beetlejuice (1988)
+Being John Malkovich (1999)
+Best in Show (2000)
+Better Off Dead... (1985)
+Beverly Hills Cop (1984)
+Bewitched (2005)
+Big (1988)
+Big Daddy (1999)
+Big Fish (2003)
+Big Trouble in Little China (1986)
+Bill & Ted's Bogus Journey (1991)
+Bill & Ted's Excellent Adventure (1989)
+Bill Cosby
+Billy Elliot (2000)
+Birdcage
+Blade Runner (1982)
+Blair Witch Project
+Blazing Saddles (1974)
+Blues Brothers
+Box of Moon Light (1996)
+Boys Don't Cry (1999)
+Brady Bunch Movie
+Braveheart (1995)
+Breakfast Club
+Bridges of Madison County
+Bridget Jones's Diary (2001)
+Bruce Almighty (2003)
+Buffy the Vampire Slayer (1992)
+Bug's Life
+Cape Fear (1991)
+Capote (2005)
+Carrie (1976)
+Casper (1995)
+Cast Away (2000)
+Catch Me If You Can (2002)
+Cell
+Charlie and the Chocolate Factory (2005)
+Charlie's Angels (2000)
+Charlie's Angels: Full Throttle (2003)
+Chasing Amy (1997)
+Cheaper by the Dozen 2 (2005)
+Chicago (2002)
+Chicken Run (2000)
+Chinatown (1974)
+Chocolat (2000)
+Christmas Story
+Christmas Vacation (National Lampoon's Christmas Vacation) (1989)
+Chronicles of Narnia: The Lion
+Cider House Rules
+Cinderella Man (2005)
+City Slickers (1991)
+Clear and Present Danger (1994)
+Clerks (1994)
+Client
+Cliffhanger (1993)
+Close Encounters of the Third Kind (1977)
+Clue (1985)
+Cocoon (1985)
+Cold Mountain (2003)
+Coming to America (1988)
+Con Air (1997)
+Conspiracy Theory (1997)
+Contact (1997)
+Corpse Bride (2005)
+Courage Under Fire (1996)
+Crash (2004)
+Creepshow (1982)
+Crimson Tide (1995)
+Crocodile Dundee (1986)
+Crocodile Dundee II (1988)
+Crouching Tiger
+Cube (1997)
+Cutthroat Island (1995)
+Dances with Wolves (1990)
+Daredevil (2003)
+Dark City (1998)
+Dark Crystal
+Dave (1993)
+Dead Again (1991)
+Dead Man Walking (1995)
+Dead Poets Society (1989)
+Deep Blue Sea (1999)
+Demolition Man (1993)
+Deuce Bigalow: Male Gigolo (1999)
+Diamonds Are Forever (1971)
+Dick (1999)
+Die Hard (1988)
+Die Hard 2 (1990)
+Die Hard: With a Vengeance (1995)
+Dirty Rotten Scoundrels (1988)
+Disclosure (1994)
+Dodgeball: A True Underdog Story (2004)
+Dogma (1999)
+Donnie Darko (2001)
+Double Jeopardy (1999)
+Dr. No (1962)
+Dragonheart (1996)
+Drop Dead Fred (1991)
+Drop Dead Gorgeous (1999)
+Dumb & Dumber (Dumb and Dumber) (1994)
+E.T. the Extra-Terrestrial (1982)
+EDtv (1999)
+Ed Wood (1994)
+Edward Scissorhands (1990)
+Elf (2003)
+Emperor's New Groove
+English Patient
+Erin Brockovich (2000)
+Escape from New York (1981)
+Eternal Sunshine of the Spotless Mind (2004)
+European Vacation (aka National Lampoon's European Vacation) (1985)
+Everest (1998)
+Eyes Wide Shut (1999)
+F/X (1986)
+Face/Off (1997)
+Fahrenheit 9/11 (2004)
+Family Man
+Fantasia (1940)
+Fantasia 2000 (1999)
+Far and Away (1992)
+Fargo (1996)
+Fast Times at Ridgemont High (1982)
+Fatal Attraction (1987)
+Father of the Bride Part II (1995)
+Ferris Bueller's Day Off (1986)
+Few Good Men
+Fifth Element
+Fight Club (1999)
+Finding Nemo (2003)
+Finding Neverland (2004)
+Firm
+First Strike (Police Story 4: First Strike) (Ging chaat goo si 4: Ji gaan daan yam mo) (1996)
+Fish Called Wanda
+Fisher King
+Flatliners (1990)
+Flightplan (2005)
+For Your Eyes Only (1981)
+Forever Young (1992)
+Forrest Gump (1994)
+Fortress (1992)
+French Kiss (1995)
+Frequency (2000)
+From Dusk Till Dawn (1996)
+From Hell (2001)
+From Russia with Love (1963)
+Fugitive
+Full Monty
+G.I. Jane (1997)
+Galaxy Quest (1999)
+Game
+Gangs of New York (2002)
+Garden State (2004)
+Gattaca (1997)
+George of the Jungle (1997)
+Ghost (1990)
+Ghost World (2001)
+Ghostbusters (a.k.a. Ghost Busters) (1984)
+Ghostbusters II (1989)
+Gladiator (2000)
+Godfather
+Gods Must Be Crazy
+Golden Child
+GoldenEye (1995)
+Goldfinger (1964)
+Good Night
+Good Will Hunting (1997)
+Goodfellas (1990)
+Goonies
+Green Mile
+Gremlins (1984)
+Gremlins 2: The New Batch (1990)
+Grosse Pointe Blank (1997)
+Groundhog Day (1993)
+Hand That Rocks the Cradle
+Hannibal (2001)
+Happy Gilmore (1996)
+Harry Potter and the Chamber of Secrets (2002)
+Harry Potter and the Goblet of Fire (2005)
+Harry Potter and the Prisoner of Azkaban (2004)
+Harry Potter and the Sorcerer's Stone (a.k.a. Harry Potter and the Philosopher's Stone) (2001)
+Heathers (1989)
+Hercules (1997)
+Hero (Ying xiong) (2002)
+High Fidelity (2000)
+History of Violence
+History of the World: Part I (1981)
+Holes (2003)
+Home Alone (1990)
+Home Alone 2: Lost in New York (1992)
+Hoodwinked! (2005)
+Hook (1991)
+Hope Floats (1998)
+Hot Shots! Part Deux (1993)
+Hulk (2003)
+Hunchback of Notre Dame
+I.Q. (1994)
+Ice Age (2002)
+Ice Age 2: The Meltdown (2006)
+Identity (2003)
+In & Out (1997)
+In the Line of Fire (1993)
+Incredibles
+Independence Day (a.k.a. ID4) (1996)
+Indian in the Cupboard
+Indiana Jones and the Last Crusade (1989)
+Indiana Jones and the Temple of Doom (1984)
+Innerspace (1987)
+Inside Man (2006)
+Insider
+Insomnia (2002)
+Interview with the Vampire: The Vampire Chronicles (1994)
+Island
+Italian Job
+JFK (1991)
+Jackie Brown (1997)
+Jacob's Ladder (1990)
+James and the Giant Peach (1996)
+Jarhead (2005)
+Jaws (1975)
+Jay and Silent Bob Strike Back (2001)
+Jerk
+Jerry Maguire (1996)
+Jewel of the Nile
+Jingle All the Way (1996)
+Johnny Mnemonic (1995)
+Jumanji (1995)
+Junebug (2005)
+Junior (1994)
+Jurassic Park (1993)
+Jurassic Park III (2001)
+Karate Kid
+Keeping the Faith (2000)
+Kill Bill: Vol. 1 (2003)
+Kill Bill: Vol. 2 (2004)
+King Kong (2005)
+L.A. Confidential (1997)
+L.A. Story (1991)
+Labyrinth (1986)
+Ladyhawke (1985)
+Lake Placid (1999)
+Last Action Hero (1993)
+Last Samurai
+Lawnmower Man
+League of Their Own
+Legally Blonde (2001)
+Lethal Weapon (1987)
+Lethal Weapon 2 (1989)
+Lethal Weapon 3 (1992)
+Liar Liar (1997)
+Lilo & Stitch (2002)
+Lion King
+Little Mermaid
+Little Princess
+Little Shop of Horrors (1986)
+Live and Let Die (1973)
+Logan's Run (1976)
+Look Who's Talking (1989)
+Lord of the Rings: The Fellowship of the Ring
+Lord of the Rings: The Return of the King
+Lord of the Rings: The Two Towers
+Lost Boys
+Lost World: Jurassic Park
+Lost in Translation (2003)
+Love Actually (2003)
+Léon: The Professional (a.k.a. The Professional) (Léon) (1994)
+Mallrats (1995)
+Man on the Moon (1999)
+Man with the Golden Gun
+March of the Penguins (Marche de l'empereur
+Mars Attacks! (1996)
+Mary Poppins (1964)
+Mask
+Mask of Zorro
+Master and Commander: The Far Side of the World (2003)
+Matchstick Men (2003)
+Matrix
+Matrix Reloaded
+Matrix Revolutions
+Maverick (1994)
+Meet Joe Black (1998)
+Meet the Fockers (2004)
+Meet the Parents (2000)
+Memento (2000)
+Men in Black (a.k.a. MIB) (1997)
+Men in Black II (a.k.a. MIIB) (a.k.a. MIB 2) (2002)
+Michael (1996)
+Mickey Blue Eyes (1999)
+Mighty Ducks
+Mighty Wind
+Million Dollar Baby (2004)
+Minority Report (2002)
+Misery (1990)
+Miss Congeniality (2000)
+Mission to Mars (2000)
+Mission: Impossible (1996)
+Monsters
+Monty Python and the Holy Grail (1975)
+Monty Python's Life of Brian (1979)
+Monty Python's The Meaning of Life (1983)
+Moonraker (1979)
+Moulin Rouge (2001)
+Mr. Holland's Opus (1995)
+Mrs. Doubtfire (1993)
+Mulan (1998)
+Mummy
+Mummy Returns
+Munich (2005)
+Muppet Movie
+Muppet Treasure Island (1996)
+My Big Fat Greek Wedding (2002)
+My Cousin Vinny (1992)
+My Girl (1991)
+Mystery Men (1999)
+Mystery Science Theater 3000: The Movie (1996)
+Mystic River (2003)
+Naked Gun 2 1/2: The Smell of Fear
+Naked Gun 33 1/3: The Final Insult (1994)
+Naked Gun: From the Files of Police Squad!
+Nanny McPhee (2005)
+Napoleon Dynamite (2004)
+National Lampoon's Vacation (1983)
+Never Been Kissed (1999)
+NeverEnding Story
+Next Karate Kid
+Nightmare Before Christmas
+Nightmare on Elm Street
+Nine Months (1995)
+Notting Hill (1999)
+O Brother
+Ocean's Eleven (2001)
+October Sky (1999)
+Office Space (1999)
+Old School (2003)
+One Flew Over the Cuckoo's Nest (1975)
+One Hour Photo (2002)
+Others
+Outbreak (1995)
+Panic Room (2002)
+Parenthood (1989)
+Patch Adams (1998)
+Patriot
+Pearl Harbor (2001)
+Pee-wee's Big Adventure (1985)
+Pelican Brief
+Perfect Storm
+Phantom
+Phenomenon (1996)
+Phone Booth (2002)
+Pirates of the Caribbean: The Curse of the Black Pearl (2003)
+Pitch Black (2000)
+Planes
+Planet of the Apes (2001)
+Pleasantville (1998)
+Pocahontas (1995)
+Powder (1995)
+Predator (1987)
+Predator 2 (1990)
+Pretty Woman (1990)
+Primer (2004)
+Prince of Egypt
+Princess Bride
+Princess Mononoke (Mononoke-hime) (1997)
+Professional
+Pulp Fiction (1994)
+Quick Change (1990)
+Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)
+Ransom (1996)
+Ray (2004)
+Reality Bites (1994)
+Red Dawn (1984)
+Red Dragon (2002)
+Red Eye (2005)
+Relic
+Remember the Titans (2000)
+Reservoir Dogs (1992)
+Ring
+River Wild
+Robin Hood: Men in Tights (1993)
+Robin Hood: Prince of Thieves (1991)
+RoboCop (1987)
+RoboCop 2 (1990)
+RoboCop 3 (1993)
+Rock
+Rocketeer
+Rocky Horror Picture Show
+Romancing the Stone (1984)
+Royal Tenenbaums
+Rumble in the Bronx (Hont faan kui) (1995)
+Runaway Bride (1999)
+Running Man
+Rush Hour (1998)
+Rush Hour 2 (2001)
+Ruthless People (1986)
+Santa Clause
+Saving Private Ryan (1998)
+Scarface (1983)
+Scary Movie (2000)
+Schindler's List (1993)
+School of Rock (2003)
+Scream (1996)
+Scream 2 (1997)
+Scrooged (1988)
+Seabiscuit (2003)
+Secret Garden
+Secret of NIMH
+Sense and Sensibility (1995)
+Serenity (2005)
+Seven (a.k.a. Se7en) (1995)
+Shakespeare in Love (1998)
+Shallow Grave (1994)
+Shanghai Knights (2003)
+Shanghai Noon (2000)
+Shawshank Redemption
+She's All That (1999)
+Shine (1996)
+Short Circuit (1986)
+Showgirls (1995)
+Shrek (2001)
+Shrek 2 (2004)
+Sideways (2004)
+Signs (2002)
+Silence of the Lambs
+Simple Plan
+Sin City (2005)
+Single White Female (1992)
+Singles (1992)
+Sister Act (1992)
+Six Days Seven Nights (1998)
+Sixteen Candles (1984)
+Sixth Sense
+Skeleton Key
+Sky High (2005)
+Sleepless in Seattle (1993)
+Sleepy Hollow (1999)
+Sling Blade (1996)
+Sneakers (1992)
+Snow White and the Seven Dwarfs (1937)
+So I Married an Axe Murderer (1993)
+Son in Law (1993)
+South Park: Bigger
+Space Jam (1996)
+Spaceballs (1987)
+Speed (1994)
+Sphere (1998)
+Spider-Man (2002)
+Spider-Man 2 (2004)
+Spirited Away (Sen to Chihiro no kamikakushi) (2001)
+Splash (1984)
+Spy Hard (1996)
+Spy Who Loved Me
+Stand by Me (1986)
+Star Trek II: The Wrath of Khan (1982)
+Star Trek III: The Search for Spock (1984)
+Star Trek IV: The Voyage Home (1986)
+Star Trek V: The Final Frontier (1989)
+Star Trek VI: The Undiscovered Country (1991)
+Star Trek: First Contact (1996)
+Star Trek: Generations (1994)
+Star Trek: The Motion Picture (1979)
+Star Wars: Episode I - The Phantom Menace (1999)
+Star Wars: Episode II - Attack of the Clones (2002)
+Star Wars: Episode III - Revenge of the Sith (2005)
+Star Wars: Episode IV - A New Hope (1977)
+Star Wars: Episode V - The Empire Strikes Back (1980)
+Star Wars: Episode VI - Return of the Jedi (1983)
+Stargate (1994)
+Starman (1984)
+Steel Magnolias (1989)
+Strange Brew (1983)
+Stripes (1981)
+Super Size Me (2004)
+Superman (1978)
+Superman II (1980)
+Superman III (1983)
+Superman IV: The Quest for Peace (1987)
+Swingers (1996)
+Tarzan (1999)
+Terminator
+Terminator 2: Judgment Day (1991)
+Terminator 3: Rise of the Machines (2003)
+That Thing You Do! (1996)
+The Butterfly Effect (2004)
+The Count of Monte Cristo (2002)
+The Devil's Advocate (1997)
+The Man in the Moon (1991)
+There's Something About Mary (1998)
+Thin Red Line
+Thirteenth Floor
+This Is Spinal Tap (1984)
+Three Kings (1999)
+Three Men and a Baby (1987)
+Three Musketeers
+Thunderball (1965)
+Time Bandits (1981)
+Time Machine
+Time to Kill
+Tin Cup (1996)
+Titan A.E. (2000)
+Titanic (1997)
+Top Gun (1986)
+Top Secret! (1984)
+Total Recall (1990)
+Toy Story (1995)
+Toy Story 2 (1999)
+Toys (1992)
+Traffic (2000)
+Training Day (2001)
+Tron (1982)
+Troy (2004)
+True Lies (1994)
+True Romance (1993)
+Truman Show
+Truth About Cats & Dogs
+Twelve Monkeys (a.k.a. 12 Monkeys) (1995)
+Twister (1996)
+UHF (1989)
+Unbreakable (2000)
+Unforgiven (1992)
+Universal Soldier (1992)
+Untouchables
+Usual Suspects
+V for Vendetta (2006)
+Vanilla Sky (2001)
+Vegas Vacation (National Lampoon's Las Vegas Vacation) (1997)
+Very Brady Sequel
+View to a Kill
+Waiting for Guffman (1996)
+Waking Ned Devine (a.k.a. Waking Ned) (1998)
+Walk the Line (2005)
+Wall Street (1987)
+Wallace & Gromit in The Curse of the Were-Rabbit (2005)
+War of the Worlds (2005)
+WarGames (1983)
+Waterboy
+Waterworld (1995)
+Wayne's World (1992)
+Wayne's World 2 (1993)
+Wedding Planner
+Wedding Singer
+Weird Science (1985)
+Wes Craven's New Nightmare (Nightmare on Elm Street Part 7: Freddy's Finale
+Whale Rider (2002)
+What About Bob? (1991)
+What Women Want (2000)
+What's Eating Gilbert Grape (1993)
+When Harry Met Sally... (1989)
+While You Were Sleeping (1995)
+Who Framed Roger Rabbit? (1988)
+Whole Nine Yards
+Willow (1988)
+Willy Wonka & the Chocolate Factory (1971)
+With Honors (1994)
+Wizard of Oz
+X-Files: Fight the Future
+X-Men (2000)
+X2: X-Men United (2003)
+You Only Live Twice (1967)
+You've Got Mail (1998)
+Young Frankenstein (1974)
+Young Guns (1988)
+Young Guns II (1990)
+Zoolander (2001)
+¡Three Amigos! (1986)

@@ -1,0 +1,54 @@
+---
+title: "CS422: Association rules"
+output: html_notebook
+author: "Vijay K. Gurbani, Ph.D., Illinois Institute of Technology"
+---
+
+```{r}
+library(arules)
+library(arulesViz)
+library(httpuv)
+setwd("~/Desktop/Assignments&Coursework/422/Hw-2-March4/")
+rm(list=ls())
+```
+#### Read the data directly in as **transactions** and inspect them.
+```{r}
+trans <- read.transactions("mba-2.csv", sep=",")
+summary(trans)
+```
+#### See the first 5 items in the transactions database
+```{r}
+inspect(trans[1:5])
+
+```
+#### Get familiar with the data
+```{r}
+itemFrequencyPlot(trans, support = 0.1)
+image(trans)
+```
+### Now, let's run Apriori on the dataset.  Note that we only get one rule.  Why?
+```{r}
+rules <- apriori(trans)
+rm(rules)
+```
+#### We get one rule since our minsup is set too high (0.1).  Let's reduce it.
+```{r}
+rules <- apriori(trans, parameter = list(support=0.01))
+summary(rules)
+
+```
+#### Let's inspect the rules, sorted by confidence
+```{r}
+inspect(head(rules, by="confidence"))
+```
+#### We can even interactively plot the rules and examine them.
+```{r}
+plot(rules, engine="htmlwidget")
+```
+#### You can drill down into rules that have a certain consequent you are looking for as follows:
+```{r}
+rules.beer <- apriori(trans, parameter=list(supp=0.01),
+                 appearance = list(default="lhs", rhs="beer"))
+inspect(sort(rules.beer, decreasing = T, by="support"))
+```
+

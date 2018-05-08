@@ -1,0 +1,78 @@
+---
+title: "Classification: Decision Trees and Random Forest"
+output: html_notebook
+author: "Vijay K. Gurbani, Ph.D., Illinois Institute of Technology"
+---
+#### German credit dataset with 21 variables and 1,000 records.  The dependent target is Creditability, which is 1 or 0 depending on whether a loan is to be granted or not, respectively, to a customer.  The dataset is available at  https://sites.google.com/site/pocketecoworld/german_credit.csv
+#### We will classify the dataset using Decision Trees and Random Forests.
+
+#### **If you do not have package 'randomForest' installed, make sure you install it first.**
+
+```{r}
+library(rpart)
+library(caret)
+library(rpart.plot)
+library(randomForest)
+
+setwd("~/Desktop/Assignments&Coursework/422/Hw-2-March4/")
+set.seed(1122)
+
+df <- read.csv("german_credit.csv", sep=",", comment.char = "#")
+# Note: You can also read the file directly using a URL:
+# df <- read.csv("https://sites.google.com/site/pocketecoworld/german_credit.csv")
+```
+#### Coerce the response variable to be a factor.
+```{r}
+df$Creditability <- as.factor(df$Creditability)
+```
+#### Create the training and test datasets.
+```{r}
+indx <- sample(1:nrow(df), 200)
+train <- df[-indx, ]
+test <- df[indx, ]
+```
+#### Let's see the distribution of the class labels in the training and testing datasets
+```{r}
+cat("Training dataset class label distribution")
+table(train$Creditability)
+cat("\nTest dataset class label distribution")
+table(test$Creditability)
+```
+
+#### Let's run the Decision Tree model first
+```{r}
+model <- rpart(Creditability ~ ., data=train)
+pred <- predict(model, test, type="class")
+confusionMatrix(pred, as.factor(test$Creditability))
+```
+#### Note Sensitivity, Specificity and Balanced Accuracy.  Specificity (TNR) is higher.  Why?
+#### And now let's run Random Forest
+```{r}
+rm(model, pred)
+model <- randomForest(Creditability ~ ., data=train)
+pred <- predict(model, test, type="class")
+confusionMatrix(pred, as.factor(test$Creditability))
+```
+#### Again, note Sensitivity, Specificity and Balanced Accuracy.  This model has even higher specificity, indicating that it is really good at finding TN instances, but at the cost of TP instances.  However, the balanced accuracy is higher here.
+
+#### Let's see what information the RF model contains
+```{r}
+print(model)
+```
+#### Note that (a) 500 trees were created, and (b) log_2(21) ~ 4, so about 4 features were randomly selected to do the split.  What happens if we increase those to 6 features?
+```{r}
+rm(model, pred)
+model <- randomForest(Creditability ~ ., data=train, mtry=6)
+pred <- predict(model, test, type="class")
+confusionMatrix(pred, as.factor(test$Creditability))
+print(model)
+```
+#### A bit better.  Higher balanced accuracy, and sensitivity (at the expense of specificity).  Note that RF seeds its own PRNG, so if you run the code above multiple times, you will get different measurements.
+
+#### You can also plot the error rate against the number of trees created to see where things stabilize
+
+```{r}
+plot(model, main="Random Forest on German Credit Data")
+legend("topright", colnames(model$err.rate), col=1:3, cex = 0.8, fill=1:3)
+```
+

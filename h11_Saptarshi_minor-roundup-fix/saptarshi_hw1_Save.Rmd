@@ -1,0 +1,293 @@
+---
+title: "CS 422 Section 01"
+author: "Saptarshi Chatterjee (cwid - 20413922)"
+subtitle: <h5>Solution to Spring 2018 Homework 1<h5>
+output:
+  html_notebook: default
+--- 
+
+> #######  1.1 Tan, Chapter 1 (1 point divided evenly among the questions)
+Besides the lecture, make sure you read Chapter 1. After doing so, answer the following questions at the end of
+the chapter: 1, 3.
+
+1. Discuss whether or not each of the following activities is a data mining task.
+(a) No. Dividing customers according to their gender is a select DB query.
+(b) No. Dividing the customers of a company according to their profitability is arithmatical caluculation.
+(c) No.Computing the total sales of a company is aggregation calculation.
+(d) No. Sorting a student database based on student identification numbers is an orderby quary.
+(e) NO. Predicting the outcomes of tossing a (fair) pair of dice is a combined probability calculation.
+(f) Yes. Predicting the future stock price of a company using historical records is a data mining task. We can use a regression model or other techniques for predicting time series.
+(g) Yes. Monitoring the heart rate of a patient for abnormalities is a data mining task. We can use classification or anomaly detection to build such model.
+(h) Yes. Monitoring seismic waves for earthquake activities is a data mining task. We can use build classification model and raise an alarm when one of these different types of seismic activity was observed.
+(i) No . Extracting the frequencies of a sound wave is signal processing.
+
+3. For each of the following data sets, explain whether or not data privacy is an important issue.
+(a) Census data collected from 1900–1950. No , Census is public.
+(b) IP addresses and visit times of Web users who visit your Website. Yes, It can be linked to perticular user behavior.
+(c) Images from Earth-orbiting satellites. No
+(d) Names and addresses of people from the telephone book. No
+(e) Names and email addresses collected from the Web. No
+
+> ####### Besides the lecture, make sure you read Chapter 2, sections 2.1 – 2.3. After doing so, answer the following questions at the end of the chapter: 2, 3, 7, 12.
+
+2. Classify the following attributes as binary, discrete, or continuous. Also classify them as qualitative (nominal or ordinal) or quantitative (interval or ratio). Some cases may have more than one interpretation, so briefly indicate your reasoning if you think there may be some ambiguity.
+
+(a) Time in terms of AM or PM. Binary, qualitative, ordinal
+(b) Brightness as measured by a light meter. Continuous, quantitative, ratio
+(c) Brightness as measured by people’s judgments. Discrete, qualitative, ordinal
+(d) Angles as measured in degrees between 0◦ and 360◦. Continuous, quan- titative, ratio
+(e) Bronze, Silver, and Gold medals as awarded at the Olympics. Discrete, qualitative, ordinal
+(f) Height above sea level. Continuous, quantitative, ratio
+(g) Number of patients in a hospital. Discrete, quantitative, ratio
+(h) ISBN numbers for books. Discrete, qualitative, nominal
+(i) Ability to pass light in terms of the following values: opaque, translucent, transparent. Discrete, qualitative, ordinal
+(j) Military rank. Discrete, qualitative, ordinal
+(k) Distance from the center of campus. Continuous, quantitative, ratio
+(l) Density of a substance in grams per cubic centimeter. Discrete, quantitative, ratio
+(m) Coat check number -  Discrete, qualitative, nominal
+
+3.
+(a) Boss is right. A better measure is given by
+Satisfaction(product) = number of complaints for the product. total number of sales for the product
+(b) Two products that have the same level of customer satisfaction may have different numbers of complaints . So, nothing can be said about the attribute type of the original measure.
+
+7.
+A feature shows spatial auto-correlation if locations that are closer to each other are more similar with respect to the values of that feature than loca- tions that are farther away. It is more common for physically close locations to have similar temperatures than similar amounts of rainfall since rainfall can be very localized;, i.e., the amount of rainfall can change abruptly from one location to another. Therefore, daily temperature shows more spatial autocorrelation then daily rainfall.
+
+12.
+  (a) Is noise ever interesting or desirable? Outliers? No, by definition. Yes.
+  (b) Can noise objects be outliers?
+    Yes. Random distortion of the data is often responsible for outliers.
+  (c) Are noise objects always outliers?
+    No. Random distortion can result in an object or value much like a normal one.
+  (d) Are outliers always noise objects?
+    No. Often outliers merely represent a class of objects that are different from normal objects.
+  (e) Can noise make a typical value into an unusual one, or vice versa? Yes.
+
+> ####### 1.3 ISLR 7e (Gareth James, et al.) (1 point divided evenly among the questions)
+Section 3.7 (Exercises), page 120: Exercises 1, 3, 4-a.
+
+1. 
+A-  In Table 3.4, the null hypothesis for "TV" is that in the presence of radio
+ads and newspaper ads, TV ads have no effect on sales. Similarly, the null
+hypothesis for "radio" is that in the presence of TV and newspaper ads, radio
+ads have no effect on sales. (And there is a similar null hypothesis for
+"newspaper".) The low p-values of TV and radio suggest that the null hypotheses
+are false for TV and radio. The high p-value of newspaper suggests that the null
+hypothesis is true for newspaper.
+
+3. 
+
+  (a) Y = 50 + 20 k_1 + 0.07 k_2 + 35 gender + 0.01(k_1 * k_2) - 10 (k_1 * gender)
+male: (gender = 0)   50 + 20 k_1 + 0.07 k_2 + 0.01(k_1 * k_2)
+female: (gender = 1) 50 + 20 k_1 + 0.07 k_2 + 35 + 0.01(k_1 * k_2) - 10 (k_1)
+
+Once the GPA is high enough, males earn more on average. => iii.
+
+  (b) Y(Gender = 1, IQ = 110, GPA = 4.0)
+= 50 + 20 * 4 + 0.07 * 110 + 35 + 0.01 (4 * 110) - 10 * 4
+= 137.1
+
+  (c) False. p-value of the regression coefficient should be examined to
+figure out if the interaction term is statistically significant or not.
+
+4. 
+Ans -  Polynomial regression is expected to have a lower training RSS
+than the linear regression. It should make a tighter fit against data that
+matched with a wider irreducible error. (Variance(epsilon)).
+
+<center> <h1> Practicum problems</h1> </center>
+
+> ####### (a) (0.5 pts) Use the read.csv() function to read the data into R
+
+```{r}
+setwd("/Users/diesel/Desktop/Assignments&Coursework/422")
+college <- read.csv("College.csv")
+```
+
+> ####### (b) (0.5 pts) Look at the data using the fix() function
+
+```{r}
+rownames(college) <- college[,1]
+#fix(college)
+```
+
+We need to eliminate the first column in the data where the names are stored
+
+```{r}
+college <- college [ , -1]
+#fix(college)
+```
+
+> ####### (c).(i). Use the summary() function to produce a numerical summaryof the variables in the data set.
+
+```{r}
+#summary(college)
+```
+
+> ####### (c).(ii)Use the pairs() function to produce a scatterplot matrix of the first ten columns or variables of the data.
+
+```{r}
+pairs(college[,1:10], main = "US Colleges",
+      pch = 21, bg = c(colors()))
+```
+
+> ####### (c).(iii) Which alumni donate more to their colleges --- those who go to public schools or those who go to private schools?
+
+```{r}
+boxplot(college$perc.alumni~college$Private,college, main="Perc of Alumni who donated",ylab="Alumni %", xlab="Is Private ?",col=(c("bisque","gold")))
+```
+
+Clearly for Private colleges % of Alumni who donated has a higher median and even much of it's 2nd quartile data is greater than 3rd quartile data of Public colleges. Both min and Max values for Private colleges are highes as well. So <b><i> people who go to private schools , donate more to their college</i></b>   
+
+> ####### (c).(iv) Which colleges --- public or private --- employ more Ph.D.’s?
+
+```{r}
+boxplot(college$PhD~college$Private,college, main="Percent of faculty with Ph.D.’s",ylab="PhD %", xlab="Is Private ?",col=(c("bisque","gold")))
+```
+For Private colleges % of Alumni who donated has a higher median and even much of it's 2nd quartile data is greater than 3rd quartile data of Public colleges. Both min and Max values for Private colleges are highes as well. So <b><i> people who go to private schools , donate more to their college</i></b>
+
+> ####### (c).(v) Create a new qualitative variable, called Elite by binning the Top10perc variable
+
+```{r}
+Elite <- rep("No", nrow(college))
+Elite[college$Top10perc > 50] <- "Yes"
+Elite <- as.factor(Elite)
+college <- data.frame(college, Elite)
+summary(Elite)
+```
+
+<b><i> There are 78 Elite Universities </i></b>
+
+> ####### (c).vi. Use the hist() function to produce some histograms with differing numbers of bins for a few of the quantitative variables.
+
+```{r}
+hist(college$Apps, xlab = "Applications", main="College Data")
+```
+
+
+<center> <h1> Problem 2: Linear Regression</h1> </center>
+
+> ####### Prerequisite - Read the Data and Clean it
+
+Read and observe -
+
+```{r}
+library(psych)
+setwd("/Users/diesel/Desktop/Assignments&Coursework/422")
+nba <- read.csv("nba.csv")
+str(nba)
+```
+
+Clean -
+
+```{r}
+rownames(nba) <- apply( nba[ , c(3,5,6) ] , 1 , paste , collapse = "-" )
+nba <- nba [ , c(-1, -3)]
+#fix(nba)
+```
+
+
+> #######  (a) Simple regression (univariate): Study the attributes of the NBA dataset. Pick one attribute that you think will be strongly correlated with the response variable (PTS)
+
+```{r}
+pairs.panels(nba[,6:21],main="Corelation Matrix") 
+nba.model <- lm(formula=PTS~FG, data=nba)
+summary(nba.model)
+```
+We have an high Adjusted R-squared , Which means model is a goo fit . At this point we are exposing all the data to model .
+
+
+> ####### (b) For the model in (a), plot the X-Y (or scatterplot) of the predictor and the regressor.
+
+```{r}
+plot(nba.model$fitted.values, nba.model$residuals, 
+     xlab = "Fitted values\nlm(PTS ~.)", 
+     ylab="Residuals", 
+     main="Residuals vs. Fitted for PTS"
+     ); 
+abline(0, 0)
+```
+
+### Separate the data in train and test data
+
+```{r}
+ set.seed(1122)
+ index <- sample(1:nrow(nba), 250)
+ train <- nba[index, ]
+ test <- nba[-index, ]
+```
+
+> ####### (c) You are to pick 3-4 attributes that will act as regressors (predictors, or the independent variable) in your regression model.  Using the psych package, study the correlation of the attributes versus the response variable to narrow down the list of regressors you will use. Once you have the list of regressors, plot the correlation between the response variable and the regressors.
+
+```{r}
+nba.advancemodel <- lm(PTS~FG+FTA+X3P, data=train)
+```
+
+
+
+> ####### (d) Multiple regression (multi-variate): Run your regression model using the regressors picked in (c). Print a summary of your model. Determine which predictors are statistically significant and which are not. Eliminate those that are not statistically significant by going back to (c) and examining other options.
+
+```{r}
+summary(nba.advancemodel)
+
+```
+
+
+> ####### (e) Plot the residuals of the model. Comment on the shape of the graph of the residuals.
+
+```{r}
+plot(nba.advancemodel$fitted.values, nba.advancemodel$residuals, 
+     xlab = "Fitted values\nlm(PTS ~.)", 
+     ylab="Residuals", 
+     main="Residuals vs. Fitted for PTS"
+     ); 
+abline(0, 0)
+```
+
+
+Residuals are well distributed on the both side of the fitted line.
+
+> ####### (f) Plot a histogram of the residuals. Does the histogram follow a Gaussian distribution?
+
+```{r}
+hist(nba.advancemodel$residuals, xlab = "Model Residuals", 
+     main="NBA PTS Residual Histogram")
+x <- -7:7
+lines(x, 190*dnorm(x, 0, sd(nba.advancemodel$residuals)), col=22)
+```
+
+yes It's a gaussian distribution.
+
+> ####### (g) Using the predict() method, fit the test dataset to the model. Get the predictions and put them in a new dataframe as a column vector. Put the test response variable as the second column vector in the new dataframe. Use R commands to find out how many of the fitted values matched (exactly) the PTS in the test dataset.
+
+```{r}
+prediction <- predict.lm(nba.advancemodel, test , interval="prediction", level=0.95, datatype="numeric")
+
+verify_prediction <- data.frame(predicted_values=round(prediction[,1]), actual_values=test$PTS)
+
+no_of_exact_match <- verify_prediction$predicted_values == verify_prediction$actual_values
+
+sprintf("Number of exact match with predicted to actual %i", sum(no_of_exact_match))
+```
+
+> ####### (h) Use R to calculate the residual vector for the predictions on the test dataset. Then, using the residual vector, calculate and print the following statistics:
+1. RSS (Residual Sum of Errors).
+2. TSS (Total Sum of Errors).
+3. The F-statistic.
+4. The RSE (Residual Standard Error).
+
+```{r}
+n <- dim(train)[1]
+p <- dim(train)[2] - 1
+RSS  <- sum((test$PTS - prediction[,1])^2)
+RSE  <- sqrt(1/(n-p-1)*RSS)
+TSS  <- sum((test$PTS - mean(test$PTS))^2)
+F    <- ((TSS - RSS)/3)/(RSS/(n-p-1))
+R.sq <- cor(test$PTS, prediction[,1] )^2
+
+sprintf("RSS - %f , TSS - %f , F-statistic - %f , RSE - %f, R^2 - %f",RSS,TSS, F,  RSE, R.sq)
+
+```
+
+

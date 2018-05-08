@@ -1,0 +1,37 @@
+---
+title: "Multi-class Classification with Decision Trees"
+output: html_notebook
+author: "Vijay K. Gurbani, Ph.D., Illinois Institute of Technology"
+---
+
+```{r}
+library(rpart)
+library(caret)
+library(rpart.plot)
+
+rm(list=ls())
+```
+#### Load the Iris dataset amd split into 80-20 (test/train).   The dataset has 150 observations; 120 are used for training and 30 for testing.
+```{r}
+data(iris)
+set.seed(100)
+index <- sample(1:nrow(iris), size=0.2*nrow(iris))
+test <- iris[index, ]
+train <- iris[-index, ]
+```
+#### Let's see the real class distribution in the test dataset
+
+```{r}
+table(test$Species)
+```
+
+#### Build the model with all predictor variables and predict on test data.  Show confusion matrix
+```{r}
+model <- rpart(Species ~ ., method="class", data=train)
+pred <- predict(model, test, type="class")
+```
+#### When we display the confusion matrix, you will note > 2 classes
+```{r}
+confusionMatrix(pred, test[, 5])
+```
+

@@ -1,0 +1,141 @@
+---
+title: "CS 422 Section 01"
+author: "Saptarshi Chatterjee (cwid - 20413922)"
+subtitle: <h5>Solution to Spring 2018 Homework 3<h5>
+output:
+  html_notebook: default
+--- 
+
+### 2.1 Topic: Locality sensitive hashing
+
+```{r}
+#Load libraries
+library(textreuse)
+library(lsa)
+options("digits"=3)
+rm(list=ls())
+
+files <- list.files("/Users/diesel/Desktop/Assignments&Coursework/422/hw4/Deliverable/hw4.movies", full.names=T)
+corpus <- TextReuseCorpus(files, tokenizer = tokenize_ngrams, n = 5,
+                          keep_tokens = TRUE)
+```
+#### (a) Visualizing our dataset as a characteristic matrix, what is the size (rows and columns) of our characteristic matrix? Programmatically compute the rows and columns (i.e., write R commands to compute the rows and columns).
+
+```{r}
+columns <- length(corpus)
+rows <- c()
+for(docno in 1:columns){
+  shinglesInThisDoc <- hashes(corpus[docno])[[1]]
+  rows <- union(rows, shinglesInThisDoc) 
+}
+
+rowcount <- length(unique(unlist(rows),use.names = TRUE ))
+
+sprintf("Number of Columns are %d , and Rows are %d",columns,  rowcount)
+
+```
+
+####(b) Let’s take a look at user ID 20. For this user, answer the following questions by examining the object returned from corpus[[“user20”]], i.e., (i) How many movies has this user rated? (Hint: Use stringr::str_count() method.) (ii) What are the first five shingles (tokens) for this user?
+
+```{r}
+d <- corpus[["user20"]]
+l <- length(strsplit(d$content, "\n")[[1]])-1
+sprintf("Number of movies rated by the user is %d", l)
+print("First 5 shingles are --- ")
+head(d$tokens, 5)
+```
+
+####(c) Let’s find similar users using the brute-force pairwise method first. Using pairwise_candidates() and pairwise_compare()
+
+```{r}
+pairs <- pairwise_candidates(pairwise_compare(corpus, jaccard_similarity, progress=interactive()))
+pairs
+```
+
+####(i) How many pairs of users have a similarity score of at least 0.60? (ii) How many pairs of users have a similarity score of at least 0.50? (iii) How many pairs of users have a similarity score of at least 0.40? (iv) List all the pair of users who have a similarity score of at least 0.40.
+
+
+```{r}
+cat("\npairs of users have a similarity score of at least 0.60 is : ", nrow(pairs[pairs$score*10 > .60, ]))
+cat("\npairs of users have a similarity score of at least 0.50 is : ", nrow(pairs[pairs$score*10 > .50, ]))
+cat("\npairs of users have a similarity score of at least 0.40 is : ", nrow(pairs[pairs$score*10 > .40, ]))
+
+pairs[pairs$score*10 > .40, ]
+
+```
+
+###2.2 Topic: Content-based recommendation system (2 Points)
+
+
+
+#### Take your Illinois Tech ID (minus the ‘A’ prefix) and perform modulo division by 671
+
+```{r}
+x <- 20413922 %% 671
+paste("user", x)
+```
+
+####Once you have constructed the user’s profile, you will randomly choose 10 movies from the movies.csv file
+```{r}
+setwd("~/Desktop/Assignments&Coursework/422/hw4/ml-latest-small/")
+set.seed(100)
+movies <- read.csv("movies.csv", header=T, sep=",")
+sample <- sample(1:nrow(movies), 10)
+moviesample <- movies[sample, ]
+moviesample$movieId
+```
+
+#### Building a user profile
+
+```{r}
+userProfile <- read.csv("/Users/diesel/Desktop/Assignments&Coursework/422/hw4/Deliverable/userprofile.csv", header=T, sep=",")
+allGenere <- c("Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+"Film-Noir", "Horror", "IMAX", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western")
+
+for (row in 1:nrow(userProfile)) {
+  generes <- as.list(strsplit(toString(movies[movies$movieId == userProfile[row, ]$X, ]$genres),"[|]")[[1]])
+  for (g in generes) {
+    userProfile[row, g] = 1
+  }
+}
+
+for (g in allGenere) {
+    print(sum(userProfile[, g]))
+    userProfile["avg", ] <- colMeans(userProfile)
+}
+
+userProfile <- userProfile[, 1:21]
+userProfile
+```
+
+
+#### Creating Movie profile
+
+```{r}
+movieProfile <- read.csv("/Users/diesel/Desktop/Assignments&Coursework/422/hw4/Deliverable/movieprofile.csv", header=T, sep=",")
+allGenere <- c("Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+"Film-Noir", "Horror", "IMAX", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western")
+
+for (row in 1:nrow(movieProfile)) {
+  generes <- as.list(strsplit(toString(movies[movies$movieId == movieProfile[row, ]$X, ]$genres),"[|]")[[1]])
+  for (g in generes) {
+    movieProfile[row, g] = 1
+  }
+}
+movieProfile <- movieProfile[, 1:21]
+movieProfile
+```
+
+
+#### Run Cosine similarity
+
+```{r}
+options("digits"=5)
+for(i in 1:nrow(movieProfile)){
+  score <- lsa::cosine(as.numeric(userProfile["avg",-1]), as.numeric(movieProfile[movieProfile$X == movieProfile[i,'X'],-1]))[[1]]
+
+movieId <- movieProfile[movieProfile$X == movieProfile[i,'X'],1]
+title <- as.vector(movies[movies$movieId == movieId,"title"])[1]
+cat("Movie ", title, ", and similarity score ", score , "\n")
+}
+```

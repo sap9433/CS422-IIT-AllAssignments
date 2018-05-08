@@ -1,0 +1,314 @@
+---
+title: "CS 422 Section 01"
+author: "Saptarshi Chatterjee (cwid - 20413922)"
+subtitle: <h5>Solution to Spring 2018 Homework 3<h5>
+output:
+  html_notebook: default
+--- 
+
+### 2.1 Problem 1: K-means clustering
+
+```{r}
+#Load libraries
+library(factoextra)
+library(cluster)
+options("digits"=3)
+rm(list=ls())
+```
+
+```{r}
+# Load the Diabetes dataset and set seed
+setwd("~/Desktop/Assignments&Coursework/422/Assignment3/")
+set.seed(1122)
+mamal <- read.csv("file19.csv", header=T, sep=",")
+dim(mamal)
+```
+#### (a) Data cleanup
+
+##### (i) Think of what attributes, if any, you may want to omit from the dataset when you do the clustering. Indicate all of the attributes you removed before doing the clustering.
+
+> I'll remove Atrribute "Name" and make it a Rowname. Because it's a non numeric nominal attribute.
+
+```{r}
+rownames(mamal) <- mamal[,1]
+mamal <- mamal [ , -1]
+```
+
+
+##### (ii) Does the data need to be standardized?
+
+> Yes "C" and "c" has values in the range of 0-1 where as other attributes have values in the range of 0-5 . So scaling should give us better resuklt.
+
+```{r}
+mamal.scaled <- scale(mamal)
+```
+
+##### (iii) You will have to clean the data to remove multiple spaces and make the comma character the delimiter.Please make sure you include your cleaned dataset in the archive file you upload.
+> Cleaned dtatset is included as file19.csv
+
+
+#### (b) Clustering
+
+#####(i) Determine how many clusters are needed by running the WSS or Silhouette graph. Plot the graph using fviz_nbclust().
+
+```{r}
+fviz_nbclust(mamal.scaled, kmeans, method="wss")
+fviz_nbclust(mamal.scaled, kmeans, method="silhouette")
+```
+
+Looks like beyond 7 cluster there is not reduce significant SS , and will lead to over fitting . So I'll take k = 7
+
+#####(ii) Once you have determined the number of clusters, run k-means clustering on the dataset to create that many clusters. Plot the clusters using fviz_cluster().
+
+```{r}
+k <- kmeans(mamal.scaled, centers=7, nstart=10)
+fviz_cluster(k, data=mamal.scaled)
+```
+
+#####(iii) How many observations are in each cluster?
+
+```{r}
+print(k['size'])
+```
+
+#####(iv) What is the total SSE of the clusters?
+
+```{r}
+print(k['totss'])
+```
+
+#####(v) What is the SSE of each cluster?
+```{r}
+print(k['withinss'])
+```
+
+#####(vi) Perform an analysis of each cluster to determine how the mammals are grouped in each cluster, and whether that makes sense? For example, to get the indices of all animals in cluster 1, you would execute:
+
+```{r}
+for (clus in 1:7){
+ print(which(k$cluster == clus))
+ print("\n")
+}
+```
+
+> The clustering make sense, It grouped mamals with similar tooth pattern. And mamals having similar tooth pattern have similar food habits that also affect where they inhabitate . The algorithm currectly grouped almost all water mamals in one cluster , and in one cluster it grouped the mamals that are mostly found in trees . In one cluster it grouped all the mamals that live under the ground etc. K-means faces difficulty in selecting outliers , looks like 'Armadillo' is an outlier.
+
+### 2.2 : Hierarchical clustering
+
+```{r}
+# Load the Diabetes dataset and set seed
+setwd("~/Desktop/Assignments&Coursework/422/Assignment3/")
+set.seed(1122)
+lang.raw <- read.csv("language.csv", header=T, sep=",")
+dim(lang.raw)
+rownames(lang.raw) <- lang.raw[,1]
+lang.raw <- lang.raw [ , -1]
+```
+
+#####(a) Run hierarchical clustering on the dataset using factoextra::eclust() method. Run the clustering algorithm for three linkages: single, complete, and average. Plot the dendogram associated with each linkage using fviz_dend(). Make sure that the labels (country names) are visible at the leafs of the dendogram.
+
+```{r}
+lang <- lang.raw
+
+hc.single <- eclust(lang, "hclust" , hc_method="single")
+fviz_dend(hc.single, palette="jco", as.ggplot=T)
+
+hc.complete <- eclust(lang, "hclust" , hc_method="complete")
+fviz_dend(hc.complete,palette="jco", as.ggplot=T)
+
+hc.average <- eclust(lang, "hclust" , hc_method="average")
+fviz_dend(hc.average, palette="jco", as.ggplot=T)
+```
+
+
+##### (b) Examine each graph produced in (a) and understand the dendrogram. Notice which countries are clustered together as two-singleton clusters (i.e., two countries clustered together because they are very close to each other in the shared languages/s). For each linkage method, list all the two singleton clusters. For instance, {Great Britain, Ireland} form a two-singleton cluster since they share English as a common language.
+
+> Result
+
+For Single link - 
+
+{Great Britain, Ireland}, {West Germany , Austria}, {Luxemberg , Switzerland}, {Belgium, France}, {Denmark, Norway}
+
+For Complete link - 
+
+{West Germany , Austria}, {Luxemberg , Switzerland}, {Denmark, Norway}, {Great Britain, Ireland}, {Belgium, France}
+
+For Avg link - 
+
+{Portugal, Spain}, {West Germany , Austria}, {Luxemberg , Switzerland}, {Belgium, France}, {Denmark, Norway},{Great Britain, Ireland},
+
+
+
+##### (c) Italy is clustered with a larger cluster in the single and average linkage, whereas in complete linkage it is clustered with a smaller cluster. Which linkage strategy do you think accurately reflects how Italy should be clustered? (Hint: Look at the raw data.) Justify your answer in 1-2 sentences.
+
+> In my opinion , "complete link strategy" accurately reflects how Italy should be clustered. In Italy people majorly speakds Italian , and just 11% speaks french . Rest are negligible. In france every body speaks french , and 12% speaks Italian, So It makes sense to have Italy closer to France and Belgium cluster.
+
+#####(d) Let’s pick a hierarchical cluster that we will call pure, and let’s define purity as the linkage strategy that produces the most two-singleton clusters. Of the linkage methods you examined in (b), which linkage method would be considered pure by our definition?
+> Averae link is considered as pure as it has 6 two-singleton .{Portugal, Spain}, {West Germany , Austria}, {Luxemberg , Switzerland}, {Belgium, France}, {Denmark, Norway},{Great Britain, Ireland},
+
+#####(e) Using the graph corresponding to the linkage method you chose in (d), at at a height of about 125, how many clusters would you have?
+
+```{r}
+clusters.125 <- cutree(hc.average, h=125)
+sprintf("We will have %d Clusters", max(clusters.125))
+```
+
+
+#####(f) Now, using the number of clusters you picked in (e), re-run the hierarchical clustering using the three linkage modes again, except this time through, specify the number of clusters using the k parameter to factoextra::eclust(). Plot the dendogram associated with each linkage using fviz_dend(). Make sure that the labels (country names) are visible at the leafs of the dendogram.
+
+```{r}
+hc.single <- eclust(lang, "hclust" , k = max(clusters.125),  hc_method="single")
+fviz_dend(hc.single, palette="jco", as.ggplot=T)
+
+hc.complete <- eclust(lang, "hclust", k = max(clusters.125), hc_method="complete")
+fviz_dend(hc.complete,palette="jco", as.ggplot=T)
+
+hc.average <- eclust(lang, "hclust", k= max(clusters.125), hc_method="average")
+fviz_dend(hc.average, palette="jco", as.ggplot=T)
+```
+
+
+#####(g) For each cluster obtained by the value of k used in (f), print the Dunn and Silhouette width using the fpc::cluster.stats() method.
+
+```{r}
+stats <- fpc::cluster.stats(dist(lang), cutree(hc.single, k=max(clusters.125)))
+sprintf("For Single Link Dunn Index %f", stats['dunn'])
+sprintf("For Single Link Silwidth %f", stats['avg.silwidth'])
+
+stats <- fpc::cluster.stats(dist(lang), cutree(hc.complete, k=max(clusters.125)))
+sprintf("For Complete Link Dunn Index %f", stats['dunn'])
+sprintf("For Complete Link Silwidth %f", stats['avg.silwidth'])
+
+stats <- fpc::cluster.stats(dist(lang), cutree(hc.average, k=max(clusters.125)))
+sprintf("For Avg. Link Dunn Index %f", stats['dunn'])
+sprintf("For Avg. Link Silwidth %f", stats['avg.silwidth'])
+```
+
+
+#####(h) From the three clusters in (g), which is the best cluster obtained if you consider the Dunn index only?
+
+> Best cluster if we consider Dunn index is "Avg Link Dunn Index 0.807345"
+
+
+#####(i) From the three clusters in (g), which is the best cluster obtained if you consider the Silhouette width only?
+
+> Best cluster if we consider Silhouette width is "Complete Link Silwidth 0.192231"
+
+#### 2.3 Problem 3: K-Means and PCA
+
+##### (a) Perform PCA on the dataset and answer the following questions
+
+```{r}
+# Load the Diabetes dataset and set seed
+setwd("~/Desktop/Assignments&Coursework/422/Assignment3/")
+set.seed(1122)
+options("digits"=3)
+pulsar <- read.csv("HTRU_2.csv", header=T, sep=",")
+pulsar <- pulsar
+pr.out <- prcomp(scale(pulsar))
+```
+
+##### (i) How much cumulative variance is explained by the first two components?
+```{r}
+summary(pr.out)
+```
+> Explained varience is .770
+
+##### (ii) Plot the first two principal components. Use a different color to represent the observations in the two classes.
+```{r}
+library(ggfortify)
+library(ggplot2)
+autoplot(pr.out, data = pulsar, colour = "class", loadings = TRUE,loadings.colour = 'gold',
+         loadings.label = TRUE)
+```
+
+##### (iii) Describe what you see with respect to the actual label of the HTRU2 dataset.
+> Skewness and Kurtosis have eigen vector in same direction . This attributes are highly corelated. Same can be said about "skewness.dm.snr" and "kurtosis.dm.snr"
+
+##### (b) We know that the HTRU2 dataset has two classes. We will now use K-means on the HTRU2 dataset.
+#####(i) Perform K-means clustering on the dataset with k = 2. Plot the resulting clusters.
+
+```{r}
+k <- kmeans(scale(pulsar), centers=2, nstart=25)
+fviz_cluster(k, data=pulsar)
+```
+
+#####(ii) Provide observations on the shape of the clusters you got in (b)(i) to the plot of the first two principal components in (a)(ii). If the clusters are are similar, why? If they are not, why?
+> Clusters are similar . As PCA cluster is based on 2 most important variables that explain highest standard deviation . Where is Kmeans consider all the available factors. How ever if we run K means on only on dataset only having 2 principal component then the shape will be similar.
+
+#####(iii) What is the distribution of the observations in each cluster?
+
+```{r}
+k$size
+```
+
+#####(iv) What is the distribution of the classes in the HTRU2 dataset?
+
+```{r}
+class1 <- sum(pulsar$class)
+sprintf(" Class 1 have %d Obs , Class 0 have %d ", class1 , dim(pulsar)[1] - class1)
+```
+
+#####(v) Based on the distribution of the classes in (b)(iii) and (b)(iv), which cluster do you think corresponds to the majority class and which cluster corresponds to the minority class?
+
+> The Red cluster correspond to the Majority class i.e. 0 and and sky blue cluster corresponds to the minority class i.e. 1. 
+
+#####(vi) Let’s focus on the larger cluster. Get all of the observations that belong to this cluster. Then, state what is the distribution of the classes within this large cluster; i.e., how many observations in this large cluster belong to class 1 and how many belong to class 0?
+
+```{r}
+pulsarc1 <- pulsar[k$cluster==1,]
+num1inLC <- sum(pulsarc1$class)
+sprintf("Number of Obs belonging to class 1 in Large cluster is %d and Number of Obs belonging to class 0 in Large cluster is %d " , num1inLC, dim(pulsarc1)[1] - num1inLC)
+```
+
+
+##### (vii) Based on the analysis above, which class (1 or 0) do you think the larger cluster represents?
+
+> Larger cluster represents class 0.
+
+##### (viii) How much variance is explained by the clustering?
+
+```{r}
+clusplot(scale(pulsar), k$cluster)
+```
+ > Toatal variance explained by clustering is 76.98%
+
+##### (ix) What is the average Silhouette width of both the clusters?
+
+```{r}
+psl<- silhouette(k$cluster, dist(pulsar))
+summary(psl)
+```
+> Average Silhouette width of both the clusters 0.552 0.284
+
+##### (x) What is the per cluster Silhouette width? Based on this, which cluster is good?
+> The silhouette value is a measure of how similar an object is to its own cluster. So clearly cluster 1 has higher average silhouette widths so It's better Cluster.
+
+
+##### (c) Perform K-means on the result of the PCA you ran in (a). More specifically, perform K-means on the first two principal component score vectors (i.e., pca$x[, 1:2]). Use k = 2.
+
+```{r}
+k <- kmeans(pr.out$x[, 1:2], centers=2, nstart=25)
+```
+
+##### (i) Plot the clusters and comment on their shape with respect to the plots of a(ii) and b(i).
+```{r}
+fviz_cluster(k, data=pulsar)
+```
+
+##### (ii) What is the average Silhouette width of both the clusters?
+
+```{r}
+psl<- silhouette(k$cluster, dist(pulsar))
+summary(psl)
+```
+> average silhouette widths are 0.558 0.289
+
+##### (iii) What is the per cluster Silhouette width? Based on this, which cluster is good?
+
+> The silhouette value is a measure of how similar an object is to its own cluster. So clearly cluster 1 has higher average silhouette widths than cluster 2, so It's better
+
+##### (iv) How do the values of c(ii) and c(iii) compare with those of b(ix) and b(x), respectively?
+
+> valuesb c(ii) and c(iii) (0.558 0.289 ) is a better cluster than b(ix) and b(x) (0.552 0.284). As the average silhouette widths of both the cluster is better for c(ii) and c(iii) .
+

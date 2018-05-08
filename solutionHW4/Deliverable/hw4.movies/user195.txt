@@ -1,0 +1,485 @@
+13th Warrior
+20
+2001: A Space Odyssey (1968)
+42 Up (1998)
+6th Day
+Absent-Minded Professor
+Addams Family
+Adventures of Rocky and Bullwinkle
+African Queen
+Air America (1990)
+Air Force One (1997)
+Airplane! (1980)
+Alien (1979)
+Alien Nation (1988)
+Alien: Resurrection (1997)
+Aliens (1986)
+Alien³ (a.k.a. Alien 3) (1992)
+All That Jazz (1979)
+Almost Famous (2000)
+Amadeus (1984)
+American Beauty (1999)
+American Graffiti (1973)
+American Pie (1999)
+American in Paris
+Angel on My Shoulder (1946)
+Animal House (1978)
+Annie Hall (1977)
+Antz (1998)
+Apartment
+Apocalypse Now (1979)
+Apollo 13 (1995)
+Around the World in 80 Days (1956)
+Arsenic and Old Lace (1944)
+Asphalt Jungle
+Austin Powers: International Man of Mystery (1997)
+Babe (1995)
+Back to the Future (1985)
+Backdraft (1991)
+Bank Dick
+Barefoot in the Park (1967)
+Battleship Potemkin (1925)
+Beauty and the Beast (1991)
+Beetlejuice (1988)
+Being There (1979)
+Bell
+Ben-Hur (1959)
+Beneath the Planet of the Apes (1970)
+Beverly Hills Cop III (1994)
+Big (1988)
+Big Chill
+Big One
+Big Sleep
+Big Trouble in Little China (1986)
+Bird on a Wire (1990)
+Blade Runner (1982)
+Blair Witch Project
+Blazing Saddles (1974)
+Blues Brothers
+Blues Brothers 2000 (1998)
+Body Heat (1981)
+Body Snatchers (1993)
+Bodyguard
+Bonnie and Clyde (1967)
+Boot
+Born Yesterday (1950)
+Bounce (2000)
+Boy Who Could Fly
+Braveheart (1995)
+Breaker Morant (1980)
+Breaking Away (1979)
+Bride of Chucky (Child's Play 4) (1998)
+Bridge on the River Kwai
+Broadcast News (1987)
+Broken Arrow (1996)
+Bug's Life
+Bull Durham (1988)
+Butch Cassidy and the Sundance Kid (1969)
+Caddyshack (1980)
+Captain Horatio Hornblower R.N. (1951)
+Casablanca (1942)
+Cast Away (2000)
+Cat Ballou (1965)
+Cat on a Hot Tin Roof (1958)
+Cell
+Chariots of Fire (1981)
+Charlie's Angels (2000)
+Chicken Run (2000)
+Children of a Lesser God (1986)
+Chinatown (1974)
+Christmas Story
+Christmas Vacation (National Lampoon's Christmas Vacation) (1989)
+Citizen Kane (1941)
+City Lights (1931)
+Clear and Present Danger (1994)
+Close Encounters of the Third Kind (1977)
+Clueless (1995)
+Cocoon (1985)
+Color Purple
+Con Air (1997)
+Conquest of the Planet of the Apes (1972)
+Contender
+Coogan's Bluff (1968)
+Cool Hand Luke (1967)
+Craft
+Dances with Wolves (1990)
+Darby O'Gill and the Little People (1959)
+Day the Earth Stood Still
+Dead Men Don't Wear Plaid (1982)
+Dead Presidents (1995)
+Death Wish 3 (1985)
+Deep Blue Sea (1999)
+Deer Hunter
+Devil in a Blue Dress (1995)
+Diamonds Are Forever (1971)
+Dick Tracy (1990)
+Die Hard (1988)
+Die Hard 2 (1990)
+Die Hard: With a Vengeance (1995)
+Diner (1982)
+Dirty Dozen
+Do the Right Thing (1989)
+Doctor Dolittle (1967)
+Doctor Zhivago (1965)
+Dog Day Afternoon (1975)
+Dogma (1999)
+Doors
+Double Indemnity (1944)
+Dracula (Bram Stoker's Dracula) (1992)
+Dracula 2000 (2000)
+Driving Miss Daisy (1989)
+Drugstore Cowboy (1989)
+Duck Soup (1933)
+Dune (1984)
+E.T. the Extra-Terrestrial (1982)
+Ed Wood (1994)
+Edward Scissorhands (1990)
+Election (1999)
+Elephant Man
+Emperor's New Groove
+Endless Summer 2
+Enemy of the State (1998)
+Escape from New York (1981)
+Escape from the Planet of the Apes (1971)
+Excalibur (1981)
+F/X (1986)
+Family Man
+Fantasia (1940)
+Fargo (1996)
+Fast Times at Ridgemont High (1982)
+Fear and Loathing in Las Vegas (1998)
+Ferris Bueller's Day Off (1986)
+Few Good Men
+Field of Dreams (1989)
+Fighting Seabees
+Finding Forrester (2000)
+Fistful of Dollars
+Five Easy Pieces (1970)
+Flubber (1997)
+For Your Eyes Only (1981)
+Force 10 from Navarone (1978)
+Forrest Gump (1994)
+French Connection
+From Here to Eternity (1953)
+Fugitive
+Full Metal Jacket (1987)
+Full Monty
+G.I. Jane (1997)
+Galaxy Quest (1999)
+Gandhi (1982)
+General
+Get Carter (2000)
+Ghost (1990)
+Ghost and Mrs. Muir
+Gladiator (2000)
+Glory (1989)
+Godfather
+Godfather: Part II
+Godfather: Part III
+Gods Must Be Crazy
+Gold Rush
+Goldfinger (1964)
+Gone in 60 Seconds (2000)
+Gone with the Wind (1939)
+Good
+Good Morning
+Goodbye Girl
+Goodfellas (1990)
+Graduate
+Grand Canyon (1991)
+Grand Hotel (1932)
+Grapes of Wrath
+Grease (1978)
+Great Dictator
+Great Escape
+Great Santini
+Green Mile
+Gremlins 2: The New Batch (1990)
+Grifters
+Groundhog Day (1993)
+Guess Who's Coming to Dinner (1967)
+Guns of Navarone
+Guys and Dolls (1955)
+Happy Gilmore (1996)
+Hard Day's Night
+Harold and Maude (1971)
+Harvey (1950)
+Haunted World of Edward D. Wood Jr.
+Haunting
+Heartbreak Ridge (1986)
+Heat (1995)
+Heaven Can Wait (1978)
+Help! (1965)
+High Fidelity (2000)
+Highlander (1986)
+Highlander III: The Sorcerer (a.k.a. Highlander: The Final Dimension) (1994)
+Highlander: Endgame (Highlander IV) (2000)
+His Girl Friday (1940)
+Holiday Inn (1942)
+Honey
+Hoop Dreams (1994)
+Hoosiers (a.k.a. Best Shot) (1986)
+House of Games (1987)
+House on Haunted Hill (1999)
+How Green Was My Valley (1941)
+How the Grinch Stole Christmas (a.k.a. The Grinch) (2000)
+Hudsucker Proxy
+Hunt for Red October
+Hurricane
+Hustler
+In the Heat of the Night (1967)
+Indian in the Cupboard
+Indiana Jones and the Last Crusade (1989)
+Indiana Jones and the Temple of Doom (1984)
+Irma la Douce (1963)
+It Happened One Night (1934)
+It's a Wonderful Life (1946)
+James and the Giant Peach (1996)
+Jaws (1975)
+Jerk
+Jerry Maguire (1996)
+Jewel of the Nile
+Journey of Natty Gann
+Jumpin' Jack Flash (1986)
+Jurassic Park (1993)
+Kelly's Heroes (1970)
+Kentucky Fried Movie
+Key Largo (1948)
+Kid in King Arthur's Court
+King Kong (1933)
+King Kong (1976)
+Klute (1971)
+Kramer vs. Kramer (1979)
+Lady Vanishes
+Last Action Hero (1993)
+Last Picture Show
+Laura (1944)
+League of Their Own
+Leaving Las Vegas (1995)
+Legend of Bagger Vance
+Legend of Drunken Master
+Lethal Weapon (1987)
+Lethal Weapon 2 (1989)
+Lethal Weapon 3 (1992)
+Lethal Weapon 4 (1998)
+Lifeboat (1944)
+Little Big Man (1970)
+Little Nicky (2000)
+Little Shop of Horrors (1986)
+Logan's Run (1976)
+Longest Day
+Lord of the Flies (1963)
+Lost Horizon (1937)
+Lost Weekend
+Lost in Space (1998)
+Lucky Numbers (2000)
+M (1931)
+M*A*S*H (a.k.a. MASH) (1970)
+Mad Max (1979)
+Maltese Falcon
+Man with Two Brains
+Man with the Golden Gun
+Manchurian Candidate
+Manhattan (1979)
+Mars Attacks! (1996)
+Marty (1955)
+Maverick (1994)
+Meet John Doe (1941)
+Melvin and Howard (1980)
+Mephisto (1981)
+Midnight Express (1978)
+Midnight Run (1988)
+Miss Congeniality (2000)
+Mister Roberts (1955)
+Mod Squad
+Modern Times (1936)
+Monty Python and the Holy Grail (1975)
+Monty Python's And Now for Something Completely Different (1971)
+Monty Python's Life of Brian (1979)
+Moonraker (1979)
+Moonstruck (1987)
+Mr. Mom (1983)
+Mr. Smith Goes to Washington (1939)
+Mummy
+Muppets Take Manhattan
+My Cousin Vinny (1992)
+My Favorite Year (1982)
+Naked Gun: From the Files of Police Squad!
+Natural
+Natural Born Killers (1994)
+Network (1976)
+Newsies (1992)
+Nobody's Fool (1994)
+North by Northwest (1959)
+Notorious (1946)
+Nurse Betty (2000)
+Nutty Professor
+Odd Couple
+Of Mice and Men (1992)
+Office Space (1999)
+Officer and a Gentleman
+Old Man and the Sea
+Old Yeller (1957)
+Oliver! (1968)
+One Flew Over the Cuckoo's Nest (1975)
+Paper Chase
+Papillon (1973)
+Parenthood (1989)
+Patriot Games (1992)
+Patton (1970)
+Pay It Forward (2000)
+Pee-wee's Big Adventure (1985)
+Perfect Storm
+Philadelphia Story
+Planes
+Planet of the Apes (1968)
+Platoon (1986)
+Popeye (1980)
+Poseidon Adventure
+Postman Always Rings Twice
+Predator (1987)
+Predator 2 (1990)
+Presidio
+Pretty Woman (1990)
+Princess Bride
+Proof of Life (2000)
+Pulp Fiction (1994)
+Quick and the Dead
+Quiet Man
+Radio Days (1987)
+Raging Bull (1980)
+Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)
+Rain Man (1988)
+Raisin in the Sun
+Raising Arizona (1987)
+Rambo III (1988)
+Rambo: First Blood Part II (1985)
+Ran (1985)
+Rebel Without a Cause (1955)
+Red Dawn (1984)
+Red Planet (2000)
+Reds (1981)
+Repo Man (1984)
+Return of the Pink Panther
+Right Stuff
+Risky Business (1983)
+River Runs Through It
+RoboCop (1987)
+RoboCop 2 (1990)
+Rocketeer
+Rocky (1976)
+Rocky Horror Picture Show
+Rocky III (1982)
+Rocky IV (1985)
+Rocky V (1990)
+Roger & Me (1989)
+Roman Holiday (1953)
+Romancing the Stone (1984)
+Romeo and Juliet (1968)
+Rumble in the Bronx (Hont faan kui) (1995)
+Running Man
+Sabrina (1954)
+Santa Fe Trail (1940)
+Saving Private Ryan (1998)
+Schindler's List (1993)
+Secret Garden
+Secret of NIMH
+Serpico (1973)
+Seven Samurai (Shichinin no samurai) (1954)
+Shaft (2000)
+Shakespeare in Love (1998)
+Shampoo (1975)
+Shane (1953)
+Shawshank Redemption
+Silence of the Lambs
+Simple Wish
+Singin' in the Rain (1952)
+Sixteen Candles (1984)
+Sleeper (1973)
+Sleepy Hollow (1999)
+Some Like It Hot (1959)
+Sophie's Choice (1982)
+Sound of Music
+South Pacific (1958)
+South Park: Bigger
+Spartacus (1960)
+Species (1995)
+Speed (1994)
+Splash (1984)
+Stalag 17 (1953)
+Stand by Me (1986)
+Star Trek II: The Wrath of Khan (1982)
+Star Trek III: The Search for Spock (1984)
+Star Trek IV: The Voyage Home (1986)
+Star Trek VI: The Undiscovered Country (1991)
+Star Wars: Episode I - The Phantom Menace (1999)
+Star Wars: Episode IV - A New Hope (1977)
+Star Wars: Episode V - The Empire Strikes Back (1980)
+Star Wars: Episode VI - Return of the Jedi (1983)
+Starman (1984)
+Steamboat Willie (1928)
+Sting
+Strangers on a Train (1951)
+Streetcar Named Desire
+Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)
+Superman (1978)
+Superman II (1980)
+Tales from the Hood (1995)
+Taxi Driver (1976)
+Tender Mercies (1983)
+Terminator
+Terminator 2: Judgment Day (1991)
+Terms of Endearment (1983)
+The Falcon and the Snowman (1985)
+There's Something About Mary (1998)
+They Shoot Horses
+Thin Blue Line
+Thing
+Thomas Crown Affair
+Time Bandits (1981)
+Time Machine
+Timecop (1994)
+Tin Men (1987)
+Titanic (1953)
+To Kill a Mockingbird (1962)
+Tommy (1975)
+Top Gun (1986)
+Top Hat (1935)
+Total Recall (1990)
+Towering Inferno
+Trading Places (1983)
+Treasure of the Sierra Madre
+Tron (1982)
+True Grit (1969)
+True Lies (1994)
+Twister (1996)
+U-571 (2000)
+Unbreakable (2000)
+Untouchables
+Verdict
+Vertical Limit (2000)
+Victor/Victoria (1982)
+View to a Kill
+Wag the Dog (1997)
+Waking Ned Devine (a.k.a. Waking Ned) (1998)
+War of the Worlds
+Waterworld (1995)
+Way We Were
+Wayne's World (1992)
+Weird Science (1985)
+West Side Story (1961)
+Westworld (1973)
+What Ever Happened to Baby Jane? (1962)
+What Women Want (2000)
+When Harry Met Sally... (1989)
+Who Framed Roger Rabbit? (1988)
+Who's Afraid of Virginia Woolf? (1966)
+Wild Wild West (1999)
+Willow (1988)
+Willy Wonka & the Chocolate Factory (1971)
+Wing Commander (1999)
+Wizard of Oz
+Wrong Man
+Yellow Submarine (1968)
+Young Frankenstein (1974)
+Young Sherlock Holmes (1985)

@@ -1,0 +1,52 @@
+---
+title: CS 422 Section 01
+output: html_notebook
+author: Saptarshi Chatterjee (cwid - 20413922)
+--- 
+### 1 Exercises
+
+> 1.1 Describe in 2-3 sentences what you expect to achieve from this course.
+
+ After completion, I should be conversant with implementation and application of essential data mining concepts and algorithms.I should also be able to contribute to freelance data-science projects available in upwork.com, freelance.com etc.
+ 
+### 2 Practicum problems 
+
+> 1-A: Load the cars dataset and print it.
+
+```{r}
+cars
+```
+
+
+> 1-B: Plot the data in the cars dataset. Provide a title for the graph. The title should be “The Cars Dataset”.
+
+```{r}
+plot(cars, main="The Cars Dataset")
+```
+ 
+ > 1-C: Print a summary of the cars dataset using the R summary() command.
+ 
+```{r}
+summary(cars)
+```
+ 
+ > 1-D: What is the maximum speed and minimum distance as shown in the summary() command?
+ 
+```{r echo=FALSE}
+speed_summary <- summary(cars$speed)
+dist_summary <- summary(cars$dist)
+paste("Max Speed ", speed_summary[6])
+paste("Min distance ", dist_summary[1])
+```
+ 
+### 2.2 Problem 2
+
+> 2-A: Read “students.csv” file into a data frame and add a new row consisting of the following data to the existing rows
+
+```{r}
+student_data <- read.delim2("~/Desktop/Assignments&Coursework/422/student.csv", sep=";")
+new_student <- data.frame(name='Brad Pitt',id=40051,gpa="2.21",grade="C")
+new_data <- rbind(student_data, new_student)
+new_data
+```
+

@@ -1,0 +1,244 @@
+---
+title: "CS 422 Section 01"
+author: "Saptarshi Chatterjee (cwid - 20413922)"
+subtitle: <h5>Solution to Spring 2018 Homework 2<h5>
+output:
+  html_notebook: default
+--- 
+
+##2.1 Decision tree classification
+
+#### Part 2.1 Decision tree classification
+
+```{r}
+#Load libraries
+library(rpart)
+library(caret)
+library(rpart.plot)
+library(ROCR)
+options("digits"=3)
+rm(list=ls())
+```
+
+```{r}
+# Load the Diabetes dataset and set seed
+setwd("~/Desktop/Assignments&Coursework/422/Hw-2-March4/")
+set.seed(1122)
+adult.train <- read.csv("adult-train.csv", header=T, sep=",")
+adult.test <- read.csv("adult-test.csv", header=T, sep=",")
+dim(adult.train)
+dim(adult.test)
+```
+
+#### 2.1(a) Remove all the observations that have ‘?’ in them. Do the same thing for the test dataset.
+
+```{r}
+delete.dirt <- function(DF, dart=c('?')) {
+  dirty_rows <- apply(DF, 1, function(r) !any(r %in% dart))
+  DF <- DF[dirty_rows, ]
+}
+
+adult.train <- delete.dirt(adult.train)
+adult.test <- delete.dirt(adult.test)
+dim(adult.train)
+dim(adult.test)
+
+```
+
+#### 2.1(b) Build a decision tree model using rpart() to predict whether a person makes <=50K or >50K using all of the predictors.(b) (i) Name the top three important predictors in the model? (b).(ii) The first split is done on which predictor? What is the predicted class of the first node? What is the distribution of observations between the “<=50K” and “>50K” classes at this node?
+
+```{r}
+adult.model <- rpart(income ~ ., method="class", data=adult.train)
+rpart.plot(adult.model, extra=104, type=4, main="Adult Income")
+adult.model$variable.importance[1:3]
+sprintf("The first split is done on predictor -> %s", rownames(adult.model$splits)[1])
+sprintf("Predicted class of 1st Node -> %s", "<=50K")
+sprintf("distribution of the <=50K and >50K at RootNode -> .7511 , .2489")
+```
+
+#### 2.1(c) Use the trained model from (b) to predict the test dataset. Answer the following questions based on the outcome of the prediction and examination of the confusion matrix: 
+
+```{r}
+adult.pred <- predict(adult.model, adult.test, type="class")
+cMat <- confusionMatrix(adult.pred, adult.test[,15])
+cMat
+```
+
+#### 2.1(c).(i) What is the balanced accuracy of the model? (ii) What is the balanced error rate of the model? (c)(iii) What is the sensitivity? Specificity? (c)(iv) What is the AUC of the ROC curve. Plot the ROC curve
+```{r}
+print.AESeSp <- function(DF) {
+  cat(sprintf("Balanced accuracy of the model -> %.3f\n", DF$byClass[11]))
+  cat(sprintf("Balanced Error of the model -> %.3f\n", 1 - DF$byClass[11]))
+  cat(sprintf("Specificity of the model -> %.3f\n", DF$byClass[2]))
+  cat(sprintf("Sensitivity of the model -> %.3f\n", DF$byClass[1]))
+}
+print.AESeSp(cMat);
+pred.rocr <- predict(adult.model, newdata=adult.test, type="prob")[,2]
+f.pred <- prediction(pred.rocr, adult.test$income)
+f.perf <- performance(f.pred, "tpr", "fpr")
+plot(f.perf, colorize=T, lwd=3)
+abline(0,1)
+auc <- performance(f.pred, measure = "auc")
+cat(paste("The area under curve (AUC) for this model is ", round(auc@y.values[[1]], 3)))
+```
+
+
+#### 2.1 (d) Print the complexity table of the model you trained. Examine the complexity table and state whether the tree would benefit from a pruning. If the tree would benefit from a pruning, at what complexity level would you prune it? If the tree would not benefit from a pruning, provide reason why you think this is the case.
+
+```{r}
+printcp(adult.model)
+adult.model$cptable[which.min(adult.model$cptable[,"xerror"]), ]
+```
+
+Lowest "xerror" is associated with last level , so pruning the tree wont improve the model accuracy.
+
+#### 2.1(e) There is a class imbalance problem in the training dataset. we will undersample the majority class such that both classes have the same number of observations in the training dataset.
+
+#### 2.1(e)(i) In the training dataset, how many observations are in the class “<=50K”? How many are in the class “>50K”?
+
+```{r}
+sprintf("Number of observations are in the class <=50K are %d", sum(adult.train$income == "<=50K"))
+sprintf("Number of observations are in the class >50K are %d", sum(adult.train$income == ">50K"))
+```
+
+#### 2.1(e)(ii)  Create a new training dataset that has equal representation of both classes
+
+```{r}
+GR50K_ind <- which(adult.train$income == ">50K")
+LE50K_ind <- which(adult.train$income == "<=50K")
+nsamp <- length(GR50K_ind)
+pick_GR50K_ind <- sample(GR50K_ind, nsamp)
+pick_LE50K_ind <- sample(LE50K_ind, nsamp)
+newTrainingDataset <- adult.train[c(pick_GR50K_ind, pick_LE50K_ind), ]
+sprintf("Number of observations are in the class <=50K are %d", sum(newTrainingDataset$income == "<=50K"))
+sprintf("Number of observations are in the class >50K are %d", sum(newTrainingDataset$income == ">50K"))
+```
+
+#### 2.1(e)Train a new model on the new training dataset, and then fit this model to the testing dataset. i) What is the balanced accuracy of this model? (ii) What is the balanced error rate of this model? (iii) What is the sensitivity? Specificity? (iv) What is the AUC of the ROC curve. Plot the ROC curve.
+
+```{r}
+balanced.model <- rpart(income ~ ., method="class", data=newTrainingDataset)
+balanced.pred <- predict(balanced.model, adult.test, type="class")
+balancedCM <- confusionMatrix(balanced.pred, adult.test[,15])
+print.AESeSp(balancedCM)
+pred.rocr <- predict(balanced.model, newdata=adult.test, type="prob")[,2]
+f.pred <- prediction(pred.rocr, adult.test$income)
+f.perf <- performance(f.pred, "tpr", "fpr")
+plot(f.perf, colorize=T, lwd=3)
+abline(0,1)
+auc <- performance(f.pred, measure = "auc")
+cat(paste("The area under curve (AUC) for this model is ", round(auc@y.values[[1]], 3)))
+```
+
+
+##2.2 Random Forest
+
+```{r}
+library(randomForest)
+```
+
+####2.1.(a) Create a RF model using the entire training dataset. Once you have created the model, use the testing dataset to predict the response class. Execute the confusionMatrix() method on the predictions versus the true class response.
+
+```{r}
+forest.model <- randomForest(income ~ ., data = adult.train, importance=T)
+forest.pred <- predict(forest.model, adult.test, type="class")
+forestCM <- confusionMatrix(forest.pred, adult.test$income)
+print(forestCM)
+```
+
+####2.1. (i) What is the balanced accuracy of the model? (ii) What is the accuracy of the model?(iii) What is the sensitivity and specificity of the model?(iv)  how many observations are labeled “>50K” and how many are labeled “<=50K”?(v) Given the response class distribution, does the sensitivity and specificity make sense?(vi)  varImpPlot(model).For MeanDecreaseAccuracy, which is the most important variable and which is the least important one? For MeanDecreaseGini, which is the most important variable and which is the least important one?(vii) Examine the model you created by invoking the print() method on it. What is the number of variables tried at each
+
+```{r}
+print.AESeSp(forestCM)
+options("digits"=3)
+sprintf("Accuracy of the model %f",forestCM$overall["Accuracy"])
+sprintf("Total observations labelled as <=50K are %s",sum(forestCM$table[1,]))
+sprintf("Total observations labelled as >50K are %s",sum(forestCM$table[2,]))
+sprintf("Ans to (v) Given the response class distribution this makes sense. As there is a data imbalance , Random forest does increase sensitivity of the model at the cost of Specificity")
+varImp <- varImpPlot(forest.model)
+sprintf("Ans to (vi) MeanDecreaseAccuracy - Most Important 'capital_gain', least Important 'native_country' . MeanDecreaseGini - most important 'capital_gain', least important 'race'" )
+print(forest.model)
+sprintf("(vii) What is the number of variables tried at each split -> %s", 3 )
+```
+
+####2.2.(b) You will now tune the RF model by finding out what is the best value to use for number of predictors to select at each split.
+
+```{r}
+mtry <- tuneRF(adult.train[, names(adult.train) != "income"], adult.train[, names(adult.train) == "income"], ntreeTry=500,stepFactor=1.5,improve=0.01, trace=TRUE, plot=TRUE)
+print(mtry)
+```
+
+####2.2.(b)(i) What is the default value of mtry given the number of predictors in your model?(ii) Once the tuneRF() method completes, examine the mtry object by printing it. It will print a table that contains relevant information on OOB (Out of Bag) errors. You want to choose the row that exhibits the lowest OOB error and use the mtry value associated with that row. For the tuneRF() method you ran above, what is the optimal value of mtry suggested by the method?
+```{r}
+sprintf("Ans to (i) What is the default value of mtry - %s", ceiling(log(15, 2)))
+sprintf("(ii) what is the optimal value of mtry? - Optimal when mtry = 2, { ...2.OOB    2    0.178}")
+```
+
+####2.2.(b)(iii) Using the optimal value of mtry from (ii), create a RF model by specifying the optimal value from (ii) in the mtry parameter to RF. When you create the model, use the importance=T parameter to. Once you have created the model, use the testing dataset to predict the response class. Execute the   method on the predictions versus the true class response and answer the following questions: (1) What is the balanced accuracy of the model? (2) What is the accuracy of the model? (3) What is the sensitivity and specificity of the model? (5) Run the varImpPlot(model)and answer the following questions: For MeanDecreaseAccuracy, which is the most important variable and which is the least important one? For MeanDecreaseGini, which is the most important variable and which is the least important one?
+
+```{r}
+forest.mtry.model <- randomForest(income ~ ., data = adult.train, importance=T, mtry=2)
+forest.mtry.pred <- predict(forest.mtry.model, adult.test, type="class")
+forestMtryCM <- confusionMatrix(forest.mtry.pred, adult.test$income)
+print.AESeSp(forestMtryCM)
+
+```
+
+```{r}
+varImp <- varImpPlot(forest.mtry.model)
+sprintf("Ans to (5) MeanDecreaseAccuracy - Most Important 'capital_gain', least Important 'native_country' . MeanDecreaseGini - most important 'capital_gain', least important 'race'" )
+```
+####2.2.(b)(iv) Comment on how the accuracy, balanced accuracy, sensitivity, specificity and variable importance from this model compareto the model you created in 2.2(a).
+
+```{r}
+print("There is a significant improvement in Balanced accuracy and Specificity, as now we are using optimal mTree split this was expected")
+```
+
+
+##2.3 Association Rules (2.0 points divided evenly by all sub-questions in 2.3)
+
+####You are provided a file groceries.csv in which you will find 9,835 transactions for market-basket analysis
+
+```{r}
+setwd("~/Desktop/Assignments&Coursework/422/Hw-2-March4/")
+trans <- read.transactions("groceries.csv", sep=",")
+summary(trans)
+```
+
+####2.3.(i) Run apriori() on the transaction set. By default, apriori() uses a minimum support value of 0.1. How many rules do you get at this support value?(ii) Manipulate the support value so you get at least 400 rules. At what support value do you get at least 400 rules?
+
+```{r}
+rules <- apriori(trans)
+sprintf("Ans - (i) Got 0 rules for default support value of 0.1")
+rules <- apriori(trans, parameter = list(support=0.001))
+summary(rules)
+sprintf("Ans - (ii)Got 410 rules for default support value of 0.001")
+```
+
+
+####2.3.(iii) Which item is the most frequently bought and what is its frequency? (iv) Which item is the least frequently bought and what is its frequency? 
+
+```{r}
+sprintf("Most frequently bought item and frequency")
+sort(table(unlist(LIST(trans))), TRUE)[1:1]
+
+sprintf("least frequently bought item and frequency")
+sort(table(unlist(LIST(trans))))[1:2]
+
+
+```
+
+
+####2.3(v) What are the top 5 rules, sorted by support? (vi) What are the top 5 rules, sorted by confidence? (vii) What are the bottom 5 rules, sorted by support? (viii) What are the bottom 5 rules, sorted by confidence?
+
+```{r}
+cat("\n\n## Top support ---- \n")
+inspect(sort(rules, decreasing = T, by="support")[1:5])
+cat("\n\n## Top confidence ----- \n")
+inspect(sort(rules, decreasing = T, by="confidence")[1:5])
+cat("\n\n## Minimum Support ----- \n")
+inspect(sort(rules, decreasing = F, by="support")[1:5])
+cat("\n\n## Minimum confidence ----- \n")
+inspect(sort(rules, decreasing = F, by="confidence")[1:5])
+```
+

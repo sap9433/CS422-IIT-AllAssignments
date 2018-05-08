@@ -1,0 +1,106 @@
+---
+title: "CS422: Fun with Linear Regression"
+output: html_notebook
+author: "Vijay K. Gurbani, Ph.D., Illinois Institute of Technology"
+---
+<!-- Markdown help: https://www.ssc.wisc.edu/sscc/pubs/RFR/RFR_RMarkdown.html -->
+```{r}
+setwd("/home/vkg/IIT/CS422/lectures/lecture-3/")
+df <- read.csv("Advertising.csv", header=T, sep=",")
+model <- lm(sales ~ ., data=df)
+summary(model)
+```
+
+### See all the goodies you have in the *model*
+```{r}
+names(model)
+```
+
+### Calculating some statistcs that ***lm()*** does manually.  Here,
+#### n = 200 observations,
+#### p = 3 predictors.
+
+```{r}
+n <- dim(df)[1]
+p <- dim(df)[2] - 1
+RSS  <- sum((df$sales - model$fit)^2)
+RSE  <- sqrt(1/(n-p-1)*RSS) # 
+TSS  <- sum((df$sales - mean(df$sales))^2)
+F    <- ((TSS - RSS)/3)/(RSS/(n-p-1))
+R.sq <- cor(df$sales, model$fit)^2
+```
+
+#### You can print the above out as you see fit, for example:
+```{r}
+cat(paste("Manually calculated R-Sq. is", R.sq))
+```
+
+### Let's take a look at some of the residuals.  
+#### Remember that residual = $Y - \hat{Y}$
+#### First, the response ($Y$)
+```{r}
+head(df$sales)
+```
+
+#### Now, the fitted value ($\hat{Y}$)
+```{r}
+head(model$fitted.values)
+```
+
+#### And now the residuals $(Y - \hat{Y})$
+
+```{r}
+head(model$residuals) # The residuals, should be Y - Y'
+```
+
+#### Let's look them side by side for better comparison
+```{r}
+new.df <- data.frame(Y=head(df$sales), Y.hat=head(model$fitted.values), residual=head(model$residuals))
+new.df
+rm(new.df)
+```
+
+
+### Now, let's plot the residuals
+
+```{r}
+plot(model, 1) # The easy way using plot()
+```
+#### That's the easy way --- using R's ***plot()*** method.  But we can plot residuals manually as well, as shown below.
+```{r}
+plot(model$fitted.values, model$residuals, 
+     xlab = "Fitted values\nlm(sales ~.)", 
+     ylab="Residuals", 
+     main="Residuals vs. Fitted"); 
+abline(0, 0)
+```
+
+### Are the residuals normally distributed?  
+#### Let's overlay the Gaussian curve on top of the residual histogram, while we are at it.  We use the std. dev. ($\sigma$) of the residual in order to draw the histogram
+```{r}
+hist(model$residuals, xlab = "Model Residuals", 
+     main="Advertising Residual Histogram")
+x <- -7:7
+lines(x, 240*dnorm(x, 0, sd(model$residuals)), col=2)
+```
+
+#### ... Hmmm ... the residuals do not look exactly like a Gaussian distribution; a bit skewed, but ok.
+
+### Now, let's predict using the fitted model!
+#### First, let's find out what our maximum sales were.  We do so using ***which.max()*** that returns an *index* where the maximum value of the parameter occurs.  This occurs at index 176 where the sales are maximum (at 27).
+```{r}
+indx <- which.max(df$sales)
+df[indx,]
+```
+
+#### What happens if we double our TV budget to $500K, add ~20% to our radio budget but keep the newspaper budget the same?
+```{r}
+predict.lm(model, data.frame(TV=500, radio=70, newspaper=27), interval="prediction")
+```
+
+#### So, the model is predicting that if we double our TV budget, increase the radio by 20% while keeping the newspaper budget the same, we will see a 40% increase in sales.
+#### Cool.  So what happens now if we don't spend any money on newspaper budget?
+```{r}
+predict.lm(model, data.frame(TV=500, radio=70, newspaper=0), interval="prediction", level=0.95)
+```
+#### Now our model actually predicts further increase in sales if we eliminate newspaper advertising!  This is sad.  We need to invest more in newspapers than we do.  They are important to democracy!

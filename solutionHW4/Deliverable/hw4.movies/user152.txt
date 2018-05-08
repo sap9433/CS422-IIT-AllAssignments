@@ -1,0 +1,217 @@
+20
+2001: A Space Odyssey (1968)
+21 Grams (2003)
+3:10 to Yuma (2007)
+Adam's Apples (Adams æbler) (2005)
+Alien (1979)
+Aliens (1986)
+Almost Famous (2000)
+Amelie (Fabuleux destin d'Amélie Poulain
+American Beauty (1999)
+American Pie (1999)
+Apollo 13 (1995)
+Austin Powers: International Man of Mystery (1997)
+Austin Powers: The Spy Who Shagged Me (1999)
+Avatar (2009)
+BURN-E (2008)
+Babel (2006)
+Back to the Future (1985)
+Band of Brothers (2001)
+Batman Begins (2005)
+Battle Royale (Batoru rowaiaru) (2000)
+Battlestar Galactica (2003)
+Beautiful Mind
+Being John Malkovich (1999)
+Big Fish (2003)
+Big Lebowski
+Billy Elliot (2000)
+Black Hawk Down (2001)
+Blade Runner (1982)
+Blood Diamond (2006)
+Blow (2001)
+Bodyguard
+Book of Eli
+Bourne Identity
+Bourne Supremacy
+Bourne Ultimatum
+Braveheart (1995)
+Broken Arrow (1996)
+Casino Royale (2006)
+Catch Me If You Can (2002)
+Children of Men (2006)
+Chronicles of Narnia: The Lion
+Cider House Rules
+Clear and Present Danger (1994)
+Cliffhanger (1993)
+Clockwork Orange
+Collateral (2004)
+Constant Gardener
+Crash (2004)
+Crimson Tide (1995)
+Crouching Tiger
+Dancer in the Dark (2000)
+Dances with Wolves (1990)
+Dark Knight
+Deer Hunter
+Delicatessen (1991)
+Die Hard (1988)
+Dirty Dozen
+District 9 (2009)
+Donnie Darko (2001)
+Down Periscope (1996)
+Downfall (Untergang
+Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)
+Dumb & Dumber (Dumb and Dumber) (1994)
+E.T. the Extra-Terrestrial (1982)
+Enemy at the Gates (2001)
+Equilibrium (2002)
+Eternal Sunshine of the Spotless Mind (2004)
+Event Horizon (1997)
+Fargo (1996)
+Fifth Element
+Fight Club (1999)
+Firm
+Flickering Lights (Blinkende lygter) (2000)
+Forrest Gump (1994)
+Four Weddings and a Funeral (1994)
+Fugitive
+Full Metal Jacket (1987)
+Gattaca (1997)
+Get Shorty (1995)
+Ghost (1990)
+Girl with the Dragon Tattoo
+Gladiator (2000)
+GoldenEye (1995)
+Good Will Hunting (1997)
+Good bye
+Gosford Park (2001)
+Grizzly Man (2005)
+Grosse Pointe Blank (1997)
+Groundhog Day (1993)
+Harry Potter and the Chamber of Secrets (2002)
+Harry Potter and the Deathly Hallows: Part 1 (2010)
+Harry Potter and the Deathly Hallows: Part 2 (2011)
+Harry Potter and the Goblet of Fire (2005)
+Harry Potter and the Half-Blood Prince (2009)
+Harry Potter and the Order of the Phoenix (2007)
+Harry Potter and the Prisoner of Azkaban (2004)
+Harry Potter and the Sorcerer's Stone (a.k.a. Harry Potter and the Philosopher's Stone) (2001)
+Heat (1995)
+High Fidelity (2000)
+Hollow Man (2000)
+Home Alone (1990)
+Hotel Rwanda (2004)
+How to Train Your Dragon (2010)
+Hurt Locker
+I Am Legend (2007)
+Ice Storm
+In Bruges (2008)
+In China They Eat Dogs (I Kina spiser de hunde) (1999)
+Inception (2010)
+Inconvenient Truth
+Incredibles
+Independence Day (a.k.a. ID4) (1996)
+Inglourious Basterds (2009)
+Interview with the Vampire: The Vampire Chronicles (1994)
+Iron Man (2008)
+Juno (2007)
+Jurassic Park (1993)
+King's Speech
+Kiss Kiss Bang Bang (2005)
+Kung Fu Panda (2008)
+Leaving Las Vegas (1995)
+Letters from Iwo Jima (2006)
+Life Is Beautiful (La Vita è bella) (1997)
+Little Miss Sunshine (2006)
+Lives of Others
+Lord of War (2005)
+Lord of the Rings: The Fellowship of the Ring
+Lord of the Rings: The Return of the King
+Lord of the Rings: The Two Towers
+Lost in Translation (2003)
+Love Actually (2003)
+Léon: The Professional (a.k.a. The Professional) (Léon) (1994)
+M*A*S*H (a.k.a. MASH) (1970)
+Mask
+Matrix
+Matrix Reloaded
+Matrix Revolutions
+Memento (2000)
+Men in Black (a.k.a. MIB) (1997)
+Million Dollar Baby (2004)
+Minority Report (2002)
+Mission to Mars (2000)
+Monsters
+Monty Python and the Holy Grail (1975)
+Moon (2009)
+Mrs. Doubtfire (1993)
+Mulholland Drive (2001)
+Munich (2005)
+Natural Born Killers (1994)
+Net
+No Country for Old Men (2007)
+Notebook
+O Brother
+Ocean's Eleven (2001)
+One Flew Over the Cuckoo's Nest (1975)
+Others
+Patch Adams (1998)
+Patton (1970)
+Pirates of the Caribbean: The Curse of the Black Pearl (2003)
+Planes
+Platoon (1986)
+Pretty Woman (1990)
+Private Parts (1997)
+Pulp Fiction (1994)
+Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)
+Rain Man (1988)
+Ratatouille (2007)
+Reservoir Dogs (1992)
+Rock
+Room with a View
+Saving Private Ryan (1998)
+Serenity (2005)
+Seven (a.k.a. Se7en) (1995)
+Shakespeare in Love (1998)
+Shawshank Redemption
+Shrek (2001)
+Shutter Island (2010)
+Silence of the Lambs
+Sin City (2005)
+Sixth Sense
+Sliding Doors (1998)
+Slumdog Millionaire (2008)
+Snatch (2000)
+Social Network
+Source Code (2011)
+Speed (1994)
+Spider-Man (2002)
+Spider-Man 2 (2004)
+Star Wars: Episode I - The Phantom Menace (1999)
+Star Wars: Episode III - Revenge of the Sith (2005)
+Star Wars: Episode IV - A New Hope (1977)
+Star Wars: Episode V - The Empire Strikes Back (1980)
+Star Wars: Episode VI - Return of the Jedi (1983)
+Stargate (1994)
+Taken (2008)
+Taxi Driver (1976)
+Terminator
+Thank You for Smoking (2006)
+The Butterfly Effect (2004)
+There Will Be Blood (2007)
+There's Something About Mary (1998)
+Titanic (1997)
+Toy Story (1995)
+Toy Story 3 (2010)
+Trainspotting (1996)
+True Lies (1994)
+Truman Show
+Twelve Monkeys (a.k.a. 12 Monkeys) (1995)
+Twister (1996)
+Up (2009)
+Usual Suspects
+V for Vendetta (2006)
+WALL·E (2008)
+Walk the Line (2005)
+Waterworld (1995)
+X2: X-Men United (2003)

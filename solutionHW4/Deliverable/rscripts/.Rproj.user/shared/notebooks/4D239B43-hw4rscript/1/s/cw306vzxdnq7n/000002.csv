@@ -1,0 +1,4 @@
+"0","#Load libraries"
+"0","library(textreuse)"
+"0","options(""digits""=3)"
+"0","rm(list=ls())"
